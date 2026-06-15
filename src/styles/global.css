@@ -4,10 +4,6 @@
 
 @import './variables.css';
 
-/* ===================== ТЕМА PRISM (подсветка кода) ===================== */
-
-@import 'prismjs/themes/prism-tomorrow.css';
-
 /* ===================== ИМПОРТ ШРИФТОВ ===================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');

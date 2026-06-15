@@ -1,47 +1,14 @@
 // src/components/Header/Header.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-java'
-import 'prismjs/components/prism-css'
-// import 'prismjs/themes/prism-tomorrow.css'
-
 import { NavLink } from 'react-router-dom'
+
 import styles from './Header.module.css'
 import avatar from '../../assets/images/avatar.png'
-import { snippets } from './codeSnippets'
+import CodeCanvas from './CodeCanvas'
 import IconShare from '../../assets/icons/IconShare'
-
-/* ===================== ОПРЕДЕЛЯЕМ ЯЗЫК СНИППЕТА ===================== */
-/* --- Смотрим на содержимое строки и возвращаем язык для Prism --- */
-function detectLanguage(code) {
-  if (code.includes('@') && code.includes('class') || code.includes('ResponseEntity') || code.includes('private ')) return 'java'
-  if (code.includes('{') && code.includes(':') && !code.includes('=>')) return 'css'
-  return 'jsx'
-}
-
-/* ===================== ПОДСВЕТКА ОДНОГО СНИППЕТА ===================== */
-function highlight(code) {
-  const lang = detectLanguage(code)
-  return Prism.highlight(code, Prism.languages[lang] || Prism.languages.jsx, lang)
-}
-
-/* ===================== ГЕНЕРАЦИЯ СЛУЧАЙНЫХ ПОЗИЦИЙ ===================== */
-/* --- Каждый сниппет получает случайную позицию и скорость --- */
-function generateParticles(count) {
-  return Array.from({ length: count }, (_, i) => ({
-    id:       i,
-    snippet:  snippets[i % snippets.length],
-    left:     `${(i / count) * 100}%`,        /* --- равномерно по ширине --- */
-    duration: 8 + Math.random() * 6,
-    delay:    -(Math.random() * 14),           /* --- стартуем в разных точках цикла --- */
-    opacity:  0.07 + Math.random() * 0.12,
-    fontSize: `${0.45 + Math.random() * 0.35}em`,
-  }))
-}
 
 /* ===================== АНИМАЦИЯ ХЕДЕРА ===================== */
 const headerVariants = {
@@ -49,7 +16,7 @@ const headerVariants = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
 }
 
-/* ===================== АНИМАЦИЯ ВЫПАДАШКИ (мобила) ===================== */
+/* ===================== АНИМАЦИЯ ВЫПАДАШКИ ===================== */
 const dropdownVariants = {
   hidden: { opacity: 0, y: '-1em', pointerEvents: 'none' },
   visible: { opacity: 1, y: 0, pointerEvents: 'auto', transition: { duration: 0.3, ease: 'easeOut' } }
@@ -66,15 +33,7 @@ const navItems = [
 
 /* ===================== КОМПОНЕНТ ===================== */
 export default function Header() {
-
-  /* --- Состояние бургер-меню --- */
   const [menuOpen, setMenuOpen] = useState(false)
-
-  /* --- Генерируем частицы один раз --- */
-  const [particles] = useState(() => generateParticles(50))
-
-  /* --- Подсветка синтаксиса после рендера --- */
-  useEffect(() => { Prism.highlightAll() }, [])
 
   /* --- Поделиться страницей --- */
   const handleShare = async () => {
@@ -93,28 +52,10 @@ export default function Header() {
       initial="hidden"
       animate="visible"
     >
+      {/* --- Canvas фон с падающим кодом --- */}
+      <CodeCanvas />
 
-      {/* ===================== ФОН: ПАДАЮЩИЙ КОД ===================== */}
-      <div className={styles.codeBackground} aria-hidden="true">
-        {particles.map(({ id, snippet, left, duration, delay, opacity, fontSize }) => (
-          <motion.span
-            key={id}
-            className={styles.codeParticle}
-            style={{ left, opacity, fontSize }}
-            animate={{ y: ['-10%', '110%'] }}
-            transition={{
-              duration,
-              delay,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            /* --- Prism подсвечивает через dangerouslySetInnerHTML --- */
-            dangerouslySetInnerHTML={{ __html: highlight(snippet) }}
-          />
-        ))}
-      </div>
-
-      {/* ===================== КОНТЕНТ ХЕДЕРА ===================== */}
+      {/* --- Контент поверх канваса --- */}
       <div className={styles.content}>
 
         {/* --- Аватар --- */}
@@ -131,24 +72,16 @@ export default function Header() {
         {/* --- Кнопки справа --- */}
         <div className={styles.actions}>
 
-          {/* --- Поделиться --- */}
-          <button
-            className={styles.btnIcon}
-            onClick={handleShare}
-            aria-label="Seite teilen"
-            title="Seite teilen"
-          >
+          <button className={styles.btnIcon} onClick={handleShare} aria-label="Seite teilen" title="Seite teilen">
             <IconShare size="1.3em" color="currentColor" />
           </button>
 
-          {/* --- Бургер (только мобила) --- */}
           <button
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
             onClick={() => setMenuOpen(prev => !prev)}
             aria-label="Menü öffnen"
             aria-expanded={menuOpen}
           >
-            {/* --- 3 полоски анимируются в крестик через CSS --- */}
             <span className={styles.burgerLine} />
             <span className={styles.burgerLine} />
             <span className={styles.burgerLine} />
@@ -157,7 +90,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ===================== ВЫПАДАШКА НАВИГАЦИИ (мобила) ===================== */}
+      {/* --- Выпадашка мобильной навигации --- */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
