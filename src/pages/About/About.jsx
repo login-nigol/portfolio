@@ -1,6 +1,7 @@
 // src/pages/About/About.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import styles from './About.module.css'
@@ -90,6 +91,9 @@ const languages = [
 
 /* ===================== КОМПОНЕНТ ===================== */
 export default function About() {
+  /* --- Какой аккордеон открыт (индекс) --- */
+  const [openIndex, setOpenIndex] = useState(0)
+
   return (
     <div className={styles.about}>
 
@@ -181,8 +185,13 @@ export default function About() {
       >
         <h2 className={styles.cardTitle}>Technologien</h2>
         <div className={styles.accordionList}>
-          {techStack.map(({ title, items }) => (
-            <Accordion key={title} title={title}>
+          {techStack.map(({ title, items }, index) => (
+            <Accordion
+              key={title}
+              title={title}
+              isOpen={openIndex === index}
+              onToggle={() => setOpenIndex(prev => prev === index ? null : index)}
+            >
               <div className={styles.tags}>
                 {items.map(item => (
                   <span key={item} className={styles.tag}>{item}</span>

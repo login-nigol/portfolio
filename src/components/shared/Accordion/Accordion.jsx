@@ -1,32 +1,27 @@
 // src/components/shared/Accordion/Accordion.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
-import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Accordion.module.css'
 
-/* ===================== АНИМАЦИЯ КОНТЕНТА ===================== */
+/* ===================== АНИМАЦИЯ ===================== */
 const contentVariants = {
     hidden: { height: 0, opacity: 0 },
     visible: { height: 'auto', opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } }
 }
 
 /* ===================== КОМПОНЕНТ ===================== */
-export default function Accordion({ title, children, defaultOpen = false }) {
-    const [isOpen, setIsOpen] = useState(defaultOpen)
-
+/* --- isOpen и onToggle управляются снаружи --- */
+export default function Accordion({ title, children, isOpen, onToggle }) {
     return (
         <div className={styles.accordion}>
 
-            {/* --- Заголовок — кнопка открытия --- */}
             <button
                 className={styles.trigger}
-                onClick={() => setIsOpen(prev => !prev)}
+                onClick={onToggle}
                 aria-expanded={isOpen}
             >
                 <span className={styles.title}>{title}</span>
-
-                {/* --- Стрелка анимируется при открытии --- */}
                 <motion.span
                     className={styles.arrow}
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -36,7 +31,6 @@ export default function Accordion({ title, children, defaultOpen = false }) {
                 </motion.span>
             </button>
 
-            {/* --- Контент с анимацией --- */}
             <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
