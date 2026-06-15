@@ -112,8 +112,8 @@
 
 .period {
   font-size: var(--fs-sm);
-  color: var(--color-text-muted);
-  margin-bottom: 0.2em !important;
+  color: var(--color-accent);
+  margin-bottom: 0.2em;
 }
 
 .expRole {
@@ -157,7 +157,7 @@
 .techTitle {
   font-size: var(--fs-sm);
   font-weight: 700;
-  color: var(--color-gold);
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -167,10 +167,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4em;
+  width: 100%;
 }
 
 .tag {
-  font-size: var(--fs-sm);
+  flex: 1;
+  min-width: 6em;
+  text-align: center;
+  font-size: var(--fs-base);
   padding: 0.2em 0.6em;
   background: rgba(74, 144, 184, 0.1);
   border: 0.05em solid var(--color-accent);
@@ -200,12 +204,12 @@
 
 .langName {
   font-weight: 600;
-  color: var(--color-text);
-  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  font-size: var(--fs-md);
 }
 
 .langLevel {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-gold);
 }
 
@@ -256,6 +260,7 @@
   }
 
   .timelineItem {
-    padding-left: var(--space-sm);
+    border-left: none;
+    padding-left: 0;
   }
 }

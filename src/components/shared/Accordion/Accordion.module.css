@@ -18,7 +18,7 @@
 
   /* --- Горизонталь: заголовок + стрелка --- */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
 
   /* --- Отступы --- */
@@ -34,9 +34,10 @@
 
 /* ===================== ЗАГОЛОВОК ===================== */
 .title {
-  font-size: var(--fs-sm);
+  flex: 1;
+  font-size: var(--fs-md);
   font-weight: 700;
-  color: var(--color-gold);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
