@@ -2,43 +2,65 @@
 
 /* ===================== ПОДВАЛ ===================== */
 .footer {
-  /* --- Горизонталь: иконки слева, копирайт справа --- */
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  /* border-top: var(--border); */
+}
+
+/* ===================== ОБЁРТКА КАНВАСА ===================== */
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ===================== КОНТЕНТ ПОВЕРХ КАНВАСА ===================== */
+.content {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* --- Отступы --- */
   padding: var(--space-xs) var(--space-lg);
-
-  /* --- Оформление --- */
-  background: var(--color-surface);
-  backdrop-filter: var(--blur);
-  border-top: var(--border);
-}
-
-/* ===================== ИКОНКИ СОЦСЕТЕЙ ===================== */
-.socials {
-  display: flex;
-  gap: var(--space-md);
-  align-items: center;
-}
-
-/* --- Размер иконок через CSS --- */
-.link svg {
-  width: 2em;
-  height: 2em;
 }
 
 /* ===================== КОПИРАЙТ ===================== */
 .copy {
   font-size: var(--fs-base);
-  color: var(--color-text-muted);
+  color: var(--color-gold);
+}
+
+/* ===================== ИКОНКИ ===================== */
+.socials {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  opacity: 0.75;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.link svg {
+  width: 2em;
+  height: 2em;
+}
+
+.link:hover {
+  opacity: 1;
+  transform: translateY(-0.2em);
 }
 
 /* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
-  .footer {
-    /* --- Колонка на мобиле --- */
+  .content {
     flex-direction: column;
     gap: var(--space-xs);
     padding: var(--space-xs);
