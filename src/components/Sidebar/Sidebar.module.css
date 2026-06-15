@@ -1,0 +1,15 @@
+/* src/components/Sidebar/Sidebar.module.css */
+
+/* ===================== САЙДБАР ===================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+/* ===================== АКТИВНАЯ ССЫЛКА ===================== */
+.active {
+  color: var(--color-accent);
+  font-weight: 700;
+}

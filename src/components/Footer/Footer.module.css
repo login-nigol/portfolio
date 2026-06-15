@@ -1,0 +1,11 @@
+/* src/components/Footer/Footer.module.css */
+
+/* ===================== ПОДВАЛ ===================== */
+.footer {
+  padding: var(--space-sm);
+  background: var(--color-surface);
+  border-top: var(--border);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}

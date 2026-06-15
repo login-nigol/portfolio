@@ -1,0 +1,8 @@
+/* src/components/Header/Header.module.css */
+
+/* ===================== ШАПКА ===================== */
+.header {
+  padding: var(--space-sm);
+  background: var(--color-surface);
+  border-bottom: var(--border);
+}
