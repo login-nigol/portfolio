@@ -80,7 +80,7 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   color: var(--color-accent);
   line-height: 1.2;
 }
