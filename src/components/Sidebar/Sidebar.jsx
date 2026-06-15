@@ -32,7 +32,7 @@ export default function Sidebar() {
     >
       {/* --- Канвас фон --- */}
       <CodeCanvas
-        lineGap={30}
+        lineGap={20}
       />
 
       {/* --- Ссылки поверх канваса --- */}

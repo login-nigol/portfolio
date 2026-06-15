@@ -41,14 +41,13 @@
 /* ===================== МОБИЛА (до 48em = 768px) ===================== */
 @media (max-width: 48em) {
 
-  .wrapper {
-    /* --- На мобиле: сайдбар снизу, как bottom nav --- */
+  .layout {
     flex-direction: column;
   }
 
-  .layout {
-    /* --- Контент сверху, nav снизу --- */
-    flex-direction: column-reverse;
+  /* --- Скрываем сайдбар на мобиле --- */
+  .layout > nav {
+    display: none;
   }
 
   .content {
