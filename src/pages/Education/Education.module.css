@@ -1,0 +1,132 @@
+/* src/pages/Education/Education.module.css */
+
+/* ===================== ОСНОВНОЙ КОНТЕЙНЕР ===================== */
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ===================== КАРТОЧКА ===================== */
+.card {
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: var(--border);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ===================== ШАПКА КАРТОЧКИ ===================== */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--border);
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-md);
+  color: var(--color-accent);
+  margin-bottom: 0.3em;
+}
+
+.degree {
+  font-size: var(--fs-sm);
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.school {
+  font-size: var(--fs-sm);
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* ===================== МЕТА: ПЕРИОД И ЧАСЫ ===================== */
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3em;
+  flex-shrink: 0;
+}
+
+.period {
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.location {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.hours {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ===================== СПИСОК ===================== */
+.list {
+  list-style: disc;
+  padding-left: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.list li {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ===================== КНОПКА СЕРТИФИКАТА ===================== */
+.certBtn {
+  /* --- Сброс --- */
+  background: none;
+  border: var(--border);
+  cursor: pointer;
+
+  /* --- Размеры --- */
+  align-self: flex-start;
+  padding: var(--space-xs) var(--space-md);
+
+  /* --- Оформление --- */
+  border-radius: var(--radius);
+  color: var(--color-accent);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+
+  /* --- Анимация --- */
+  transition: all var(--transition);
+}
+
+.certBtn:hover {
+  background: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+}
+
+/* ===================== МОБИЛА (до 48em) ===================== */
+@media (max-width: 48em) {
+  .cardHeader {
+    flex-direction: column;
+  }
+
+  .meta {
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+}
