@@ -1,0 +1,90 @@
+/* src/components/shared/Modal/Modal.module.css */
+
+/* ===================== ЗАТЕМНЁННЫЙ ФОН ===================== */
+.overlay {
+  /* --- Покрываем весь экран --- */
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  /* --- Полупрозрачный фон --- */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+
+  /* --- Центрируем модал --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+/* ===================== МОДАЛ ===================== */
+.modal {
+  /* --- Размеры --- */
+  width: 100%;
+  max-width: 55em;
+  height: 90vh;
+
+  /* --- Оформление --- */
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: var(--border);
+  overflow: hidden;
+
+  /* --- Колонка: шапка + iframe --- */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================== ШАПКА МОДАЛА ===================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: var(--border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-md);
+  color: var(--color-accent);
+}
+
+/* ===================== КНОПКА ЗАКРЫТИЯ ===================== */
+.close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+  line-height: 1;
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+}
+
+.close:hover {
+  color: var(--color-accent);
+  background: rgba(74, 144, 184, 0.1);
+}
+
+/* ===================== PDF IFRAME ===================== */
+.iframe {
+  width: 100%;
+  flex: 1;
+  border: none;
+}
+
+/* ===================== МОБИЛА (до 48em) ===================== */
+@media (max-width: 48em) {
+  .overlay {
+    padding: var(--space-xs);
+  }
+
+  .modal {
+    height: 95vh;
+  }
+}
