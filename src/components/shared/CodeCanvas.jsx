@@ -1,4 +1,4 @@
-// src/components/Header/CodeCanvas.jsx
+// src/components/shared/CodeCanvas.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
 import { useEffect, useRef } from 'react'
@@ -6,13 +6,13 @@ import { snippets } from './codeSnippets'
 
 /* ===================== ЦВЕТА ТОКЕНОВ (как в VS Code) ===================== */
 const TOKEN_COLORS = {
-    keyword: '#c678dd', /* --- фиолетовый: import, const, return --- */
-    string: '#98c379', /* --- зелёный: строки в кавычках --- */
-    function: '#61afef', /* --- голубой: названия функций --- */
-    number: '#d19a66', /* --- оранжевый: числа --- */
-    comment: '#5c6370', /* --- серый: комментарии --- */
-    tag: '#e06c75', /* --- красный: JSX теги --- */
-    default: '#abb2bf', /* --- светло-серый: всё остальное --- */
+    keyword: '#c678dd',
+    string: '#98c379',
+    function: '#61afef',
+    number: '#d19a66',
+    comment: '#5c6370',
+    tag: '#e06c75',
+    default: '#abb2bf',
 }
 
 /* ===================== ОПРЕДЕЛЯЕМ ЦВЕТ ТОКЕНА ===================== */
@@ -32,15 +32,33 @@ function tokenColor(word) {
     return TOKEN_COLORS.default
 }
 
-/* ===================== КОМПОНЕНТ КАНВАСА ===================== */
-export default function CodeCanvas() {
+/* ===================== ПРОПСЫ ПО УМОЛЧАНИЮ ===================== */
+/* --- Каждый компонент может переопределить под себя --- */
+const defaultProps = {
+    fontSize: 15,
+    lineGap: 120,
+    minOpacity: 0.35,
+    maxOpacity: 0.3,
+    minSpeed: 0.3,
+    maxSpeed: 0.8,
+}
+
+/* ===================== КОМПОНЕНТ ===================== */
+export default function CodeCanvas({
+    fontSize = defaultProps.fontSize,
+    lineGap = defaultProps.lineGap,
+    minOpacity = defaultProps.minOpacity,
+    maxOpacity = defaultProps.maxOpacity,
+    minSpeed = defaultProps.minSpeed,
+    maxSpeed = defaultProps.maxSpeed,
+}) {
     const canvasRef = useRef(null)
 
     useEffect(() => {
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
 
-        /* --- Подгоняем размер канваса под хедер --- */
+        /* --- Подгоняем размер канваса под родителя --- */
         const resize = () => {
             canvas.width = canvas.offsetWidth
             canvas.height = canvas.offsetHeight
@@ -48,50 +66,43 @@ export default function CodeCanvas() {
         resize()
         window.addEventListener('resize', resize)
 
-        /* --- Настройки колонок --- */
-        const FONT_SIZE = 15
-        const FONT = `${FONT_SIZE}px 'Fira Code', monospace`
-        const LINE_GAP = 120  /* --- расстояние между колонками --- */
+        const FONT = `${fontSize}px 'Fira Code', monospace`
 
         /* --- Создаём колонки равномерно по ширине --- */
         const columns = Array.from(
-            { length: Math.floor(canvas.width / LINE_GAP) },
+            { length: Math.floor(canvas.width / lineGap) },
             (_, i) => ({
-                x: i * LINE_GAP + Math.random() * 20,
-                y: Math.random() * -500,           /* --- стартуем выше экрана --- */
-                speed: 0.3 + Math.random() * 0.8,      /* --- разная скорость --- */
+                x: i * lineGap + Math.random() * 20,
+                y: Math.random() * -500,
+                speed: minSpeed + Math.random() * maxSpeed,
                 snippet: snippets[Math.floor(Math.random() * snippets.length)],
-                opacity: 0.35 + Math.random() * 0.3,    /* --- полупрозрачность --- */
+                opacity: minOpacity + Math.random() * maxOpacity,
             })
         )
 
         /* ===================== АНИМАЦИОННЫЙ LOOP ===================== */
         let animId
         const draw = () => {
-            /* --- Очищаем канвас --- */
             ctx.clearRect(0, 0, canvas.width, canvas.height)
-
             ctx.font = FONT
 
             columns.forEach(col => {
-                /* --- Двигаем колонку вниз --- */
                 col.y += col.speed
 
-                /* --- Когда вышла за низ — сбрасываем наверх --- */
+                /* --- Сброс колонки наверх --- */
                 if (col.y > canvas.height + 20) {
                     col.y = Math.random() * -200
                     col.snippet = snippets[Math.floor(Math.random() * snippets.length)]
-                    col.speed = 0.4 + Math.random() * 0.8
+                    col.speed = minSpeed + Math.random() * maxSpeed
                 }
 
-                /* --- Рисуем слова сниппета с цветом --- */
+                /* --- Рисуем слова с подсветкой --- */
                 const words = col.snippet.split(' ')
                 let offsetX = col.x
 
                 words.forEach(word => {
-                    const color = tokenColor(word)
                     ctx.globalAlpha = col.opacity
-                    ctx.fillStyle = color
+                    ctx.fillStyle = tokenColor(word)
                     ctx.fillText(word + ' ', offsetX, col.y)
                     offsetX += ctx.measureText(word + ' ').width
                 })
@@ -102,12 +113,17 @@ export default function CodeCanvas() {
 
         draw()
 
-        /* --- Чистим при размонтировании --- */
         return () => {
             cancelAnimationFrame(animId)
             window.removeEventListener('resize', resize)
         }
-    }, [])
+    }, [fontSize, lineGap, minOpacity, maxOpacity, minSpeed, maxSpeed])
 
-    return <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} aria-hidden="true" />
+    return (
+        <canvas
+            ref={canvasRef}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+            aria-hidden="true"
+        />
+    )
 }

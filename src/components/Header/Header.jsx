@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 import styles from './Header.module.css'
 import avatar from '../../assets/images/avatar.png'
-import CodeCanvas from './CodeCanvas'
+import CodeCanvas from '../shared/CodeCanvas'
 import IconShare from '../../assets/icons/IconShare'
 
 /* ===================== АНИМАЦИЯ ХЕДЕРА ===================== */
