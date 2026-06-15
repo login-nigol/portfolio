@@ -1,0 +1,116 @@
+/* src/pages/About/About.module.css */
+
+/* ===================== ОСНОВНОЙ КОНТЕЙНЕР ===================== */
+
+.about {
+  /* --- Сетка --- */
+  display: flex;
+  flex-direction: column;
+
+  /* --- Отступы --- */
+  gap: var(--space-sm);
+}
+
+/* ===================== БЛОК ФИО + ФОТО ===================== */
+
+.hero {
+  /* --- Сетка: текст слева, фото справа --- */
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  /* --- Отступы --- */
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+
+  /* --- Оформление --- */
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: var(--border);
+
+  /* --- Выравнивание --- */
+  align-items: center;
+}
+
+/* ===================== ТЕКСТОВАЯ ЧАСТЬ ===================== */
+
+.info h1 {
+  text-align: center;
+
+  /* --- Типографика --- */
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+
+  /* --- Отступы --- */
+  margin-bottom: var(--space-md);
+}
+
+.info p {
+  /* --- Отступы --- */
+  margin-bottom: var(--space-xs);
+  margin-left: 3em;
+}
+
+/* ===================== ФОТО ===================== */
+
+.photo {
+  /* --- Размеры --- */
+  max-width: 15em;
+  /* height: 10em; */
+
+  /* --- Оформление --- */
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.photo img {
+  /* --- Растяжение изображения --- */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===================== БЛОК БИОГРАФИИ ===================== */
+
+.bio {
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  border: var(--border);
+  /* margin-top: var(--space-lg); */
+}
+
+.bio h2 {
+  margin-bottom: var(--space-md);
+}
+
+.bio p {
+  line-height: 1.6;
+}
+
+/* ===================== БЛОК КУРСОВ ===================== */
+
+.courses {
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  border: var(--border);
+  /* margin-top: var(--space-lg); */
+}
+
+.courses h2 {
+  margin-bottom: var(--space-md);
+}
+
+.courses ul {
+  list-style: disc;
+  padding-left: var(--space-lg);
+}
+
+.courses li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
+}

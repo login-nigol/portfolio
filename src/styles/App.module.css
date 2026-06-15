@@ -1,29 +1,58 @@
 /* src/styles/App.module.css */
 
-/* ===================== ОБЁРТКА ДЛЯ ОГРАНИЧЕНИЯ ===================== */
-
+/* ===================== ОБЁРТКА ===================== */
 .wrapper {
-  max-width: 90em;
-  margin: 0 auto;
-  min-height: 100vh;
+  /* --- Весь экран, без вылезания --- */
+  height: 100vh;
+  overflow: hidden;
+
+  /* --- Вертикальная колонка: header / layout / footer --- */
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
+
+  /* --- Центрируем на широких экранах --- */
+  max-width: 90em;
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* ===================== ЛЕЙАУТ СЕТКА ===================== */
-
+/* ===================== СРЕДНЯЯ ЗОНА ===================== */
 .layout {
-  display: grid;
-  grid-template-columns: 1fr 14em;
+  /* --- Desktop: контент слева, сайдбар справа --- */
+  display: flex;
+  flex-direction: row;
+
+  /* --- Занимает всё между header и footer --- */
   flex: 1;
-  /* grid-template-rows: auto 1fr auto; */
-  /* min-height: 100vh; */
+  overflow: hidden;
 }
 
 /* ===================== КОНТЕНТНАЯ ОБЛАСТЬ ===================== */
-
 .content {
-  padding: var(--space-lg);
+  /* --- Растягивается на всю ширину --- */
+  flex: 1;
+
+  /* --- Только здесь скроллится --- */
   overflow-y: auto;
+
+  padding: var(--space-lg);
+}
+
+/* ===================== МОБИЛА (до 48em = 768px) ===================== */
+@media (max-width: 48em) {
+
+  .wrapper {
+    /* --- На мобиле: сайдбар снизу, как bottom nav --- */
+    flex-direction: column;
+  }
+
+  .layout {
+    /* --- Контент сверху, nav снизу --- */
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    /* --- Меньше отступы на маленьком экране --- */
+    padding: var(--space-sm);
+  }
 }

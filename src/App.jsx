@@ -1,7 +1,8 @@
 // src/App.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 
 /* --- Лейаут компоненты --- */
 import Header from './components/Header/Header'
@@ -14,17 +15,32 @@ import About from './pages/About/About'
 import Education from './pages/Education/Education'
 import Projects from './pages/Projects/Projects'
 
-/* --- Глобальные стили --- */
+/* --- Стили --- */
 import './styles/global.css'
 import styles from './styles/App.module.css'
 
-/* ===================== КОМПОНЕНТ ===================== */
+/* ===================== АНИМИРОВАННЫЕ РОУТЫ ===================== */
+/* AnimatePresence должен видеть location — выносим в отдельный компонент */
+function AnimatedRoutes() {
+  const location = useLocation()
+
+  return (
+    /* --- key={location.pathname} — триггер для анимации при смене роута --- */
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<CoverLetter />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </AnimatePresence>
+  )
+}
+
+/* ===================== ГЛАВНЫЙ КОМПОНЕНТ ===================== */
 export default function App() {
   return (
-    /* --- Роутер --- */
     <BrowserRouter>
-
-      {/* --- Основной лейаут с ограничением ширины --- */}
       <div className={styles.wrapper}>
 
         {/* --- Шапка --- */}
@@ -32,17 +48,12 @@ export default function App() {
 
         <div className={styles.layout}>
 
-          {/* --- Контентная область --- */}
+          {/* --- Контент со сменой роутов --- */}
           <main className={styles.content}>
-            <Routes>
-              <Route path="/" element={<CoverLetter />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/projects" element={<Projects />} />
-            </Routes>
+            <AnimatedRoutes />
           </main>
-          
-          {/* --- Сайдбар с навигацией --- */}
+
+          {/* --- Боковая навигация --- */}
           <Sidebar />
 
         </div>
@@ -51,7 +62,6 @@ export default function App() {
         <Footer />
 
       </div>
-
     </BrowserRouter>
   )
 }
