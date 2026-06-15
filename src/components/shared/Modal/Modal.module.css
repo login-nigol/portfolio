@@ -26,7 +26,7 @@
   height: 90vh;
 
   /* --- Оформление --- */
-  background: var(--color-surface);
+  background: var(--color-bg);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
   border: var(--border);
@@ -111,6 +111,7 @@
   color: var(--color-accent);
   padding: 0 var(--space-md);
   border-radius: var(--radius);
+  border-color: var(--color-accent);
   transition: all var(--transition);
   line-height: 1.5;
 }

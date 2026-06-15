@@ -20,10 +20,10 @@ import diplomTranscript2 from '../../assets/certificates/diplom-transcript-2.jpg
 
 /* --- Документы университета --- */
 const univDocs = [
-  { src: diplomAlfarabi, label: '📄 IHK Bescheid' },
-  { src: diplomTranslation, label: '📄 Diplom Übersetzung' },
-  { src: diplomTranscript1, label: '📄 Transcript Seite 1' },
-  { src: diplomTranscript2, label: '📄 Transcript Seite 2' },
+  { src: diplomAlfarabi, title: '📄 IHK Bescheid' },
+  { src: diplomTranslation, title: '📄 Diplom Übersetzung' },
+  { src: diplomTranscript1, title: '📄 Transcript Seite 1' },
+  { src: diplomTranscript2, title: '📄 Transcript Seite 2' },
 ]
 
 /* ===================== АНИМАЦИЯ ===================== */
@@ -94,9 +94,11 @@ const courses = [
 /* ===================== КОМПОНЕНТ ===================== */
 export default function Education() {
   /* --- Модал: какой сертификат открыт --- */
-  const [modal, setModal] = useState({ isOpen: false, src: '', title: '' })
+  const [modal, setModal] = useState({ isOpen: false, src: '', title: '', files: null })
 
-  const openModal = (src, title) => setModal({ isOpen: true, src, title })
+  const openModal = (src, title, files = null) =>
+    setModal({ isOpen: true, src, title, files })
+
   const closeModal = () => setModal(prev => ({ ...prev, isOpen: false }))
 
   return (
@@ -186,6 +188,7 @@ export default function Education() {
         onClose={closeModal}
         src={modal.src}
         title={modal.title}
+        files={modal.files}
       />
 
     </div >
