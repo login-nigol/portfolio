@@ -2,14 +2,45 @@
 
 /* ===================== САЙДБАР ===================== */
 .sidebar {
+  /* --- Сетка внутри сайдбара --- */
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  padding: var(--space-md);
+
+  /* --- Отступы и размеры --- */
+  padding: var(--space-lg) var(--space-md);
+
+  /* --- Оформление --- */
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-right: var(--border);
+  height: 100%;
+}
+
+/* ===================== ССЫЛКИ НАВИГАЦИИ ===================== */
+.sidebar a {
+  /* --- Отступы и размеры --- */
+  padding: var(--space-xs) var(--space-sm);
+
+  /* --- Оформление --- */
+  border-radius: var(--radius);
+  transition: all var(--transition);
+
+  /* --- Типографика --- */
+  font-weight: 500;
+}
+
+/* ===================== ХОВЕР ССЫЛОК ===================== */
+.sidebar a:hover {
+  /* --- Оформление --- */
+  background: var(--color-accent);
+  color: white;
+  opacity: 1;
 }
 
 /* ===================== АКТИВНАЯ ССЫЛКА ===================== */
 .active {
-  color: var(--color-accent);
-  font-weight: 700;
+  /* --- Оформление --- */
+  background: var(--color-accent);
+  color: white !important;
 }

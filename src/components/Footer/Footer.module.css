@@ -2,10 +2,18 @@
 
 /* ===================== ПОДВАЛ ===================== */
 .footer {
+  /* --- Позиционирование в сетке --- */
+  grid-column: 1 / -1;
+
+  /* --- Отступы и размеры --- */
   padding: var(--space-sm);
+
+  /* --- Оформление --- */
   background: var(--color-surface);
   border-top: var(--border);
   text-align: center;
+
+  /* --- Типографика --- */
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
 }

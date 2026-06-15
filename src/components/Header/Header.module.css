@@ -2,7 +2,20 @@
 
 /* ===================== ШАПКА ===================== */
 .header {
-  padding: var(--space-sm);
+  /* --- Позиционирование в сетке --- */
+  grid-column: 1 / -1;
+
+  /* --- Отступы и размеры --- */
+  padding: var(--space-md) var(--space-lg);
+
+  /* --- Оформление --- */
   background: var(--color-surface);
+  backdrop-filter: var(--blur);
   border-bottom: var(--border);
+
+  /* --- Типографика --- */
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-accent);
 }
