@@ -2,8 +2,12 @@
 
 /* ===================== ИМПОРТЫ ===================== */
 import { motion } from 'framer-motion'
+
 import styles from './About.module.css'
+
 import avatar from '../../assets/images/avatar.png'
+
+import Accordion from '../../components/shared/Accordion/Accordion'
 
 /* ===================== АНИМАЦИЯ БЛОКОВ ===================== */
 /* --- Каждый блок появляется снизу с задержкой --- */
@@ -176,19 +180,18 @@ export default function About() {
         custom={3}
       >
         <h2 className={styles.cardTitle}>Technologien</h2>
-        <div className={styles.techGrid}>
+        <div className={styles.accordionList}>
           {techStack.map(({ title, items }) => (
-            <div key={title} className={styles.techGroup}>
-              <h3 className={styles.techTitle}>{title}</h3>
+            <Accordion key={title} title={title}>
               <div className={styles.tags}>
                 {items.map(item => (
                   <span key={item} className={styles.tag}>{item}</span>
                 ))}
               </div>
-            </div>
+            </Accordion>
           ))}
         </div>
-      </motion.section>      
+      </motion.section>
 
       {/* ===== БЛОК 5: SPRACHEN ===== */}
       <motion.section

@@ -1,0 +1,60 @@
+/* src/components/shared/Accordion/Accordion.module.css */
+
+/* ===================== ОБЁРТКА ===================== */
+.accordion {
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+/* ===================== КНОПКА ЗАГОЛОВКА ===================== */
+.trigger {
+  /* --- Сброс стилей кнопки --- */
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  /* --- Горизонталь: заголовок + стрелка --- */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* --- Отступы --- */
+  padding: var(--space-sm) var(--space-md);
+
+  /* --- Анимация --- */
+  transition: background var(--transition);
+}
+
+.trigger:hover {
+  background: rgba(74, 144, 184, 0.08);
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===================== СТРЕЛКА ===================== */
+.arrow {
+  color: var(--color-accent);
+  font-size: var(--fs-md);
+  line-height: 1;
+}
+
+/* ===================== КОНТЕНТ ===================== */
+.content {
+  /* --- overflow hidden для анимации height --- */
+  overflow: hidden;
+}
+
+.inner {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  border-top: var(--border);
+}

@@ -223,6 +223,13 @@
   border-radius: 1em;
 }
 
+/* ===================== АККОРДЕОН СПИСОК ===================== */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
 /* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
 
