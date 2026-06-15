@@ -125,9 +125,11 @@ export default function About() {
       >
         <h2 className={styles.cardTitle}>Profil</h2>
         <p>
-          Full Stack Developer mit abgeschlossenen Kursen in Java (Spring Boot)
-          und React. Spezialisiert auf Backend-Entwicklung mit Microservice-Architektur
-          und modernem Frontend mit React 19.
+          Full Stack Developer mit einem Hochschulabschluss als Ingenieur-Programmierer
+          (Al-Farabi Universität Almaty, 1999–2003) sowie abgeschlossenen Kursen in
+          Java (Spring Boot), HTML, CSS und JavaScript. React habe ich eigenständig erlernt.
+          Ich spezialisiere mich auf Full Stack Entwicklung — vom Microservice-Backend
+          bis zum modernen Frontend.
         </p>
         <p>
           Seit März 2026 entwickle ich aktiv <a href="https://lifeqr.kz" target="_blank" rel="noopener noreferrer">LifeQR.kz</a> —
@@ -135,7 +137,7 @@ export default function About() {
           JWT-Authentifizierung, CI/CD und Docker-Deployment auf eigenem VPS.
         </p>
         <p>
-          Ich suche eine Junior-Stelle als Full Stack oder Backend Developer,
+          Ich suche eine Junior-Stelle als Full Stack Developer,
           um in einem erfahrenen Team zu wachsen und echten Mehrwert zu liefern.
         </p>
       </motion.section>
