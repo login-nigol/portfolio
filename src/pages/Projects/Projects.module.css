@@ -1,0 +1,136 @@
+/* src/pages/Projects/Projects.module.css */
+
+/* ===================== СПИСОК ===================== */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ===================== КАРТОЧКА ===================== */
+.card {
+  display: flex;
+  flex-direction: row;
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: var(--border);
+  border-color: var(--color-accent);
+  overflow: hidden;
+  min-height: 16em;
+}
+
+/* ===================== КАРТИНКА ===================== */
+.imgWrap {
+  position: relative;
+  width: 45%;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: block;
+
+  padding: var(--space-sm);
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition);
+
+  border-radius: var(--radius);
+  box-shadow: 0 0 1.5em 0.3em rgba(74, 144, 184, 0.35);
+}
+
+.imgWrap:hover img {
+  transform: scale(1.05);
+}
+
+/* ===================== ОВЕРЛЕЙ ===================== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 144, 184, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  color: white;
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.imgWrap:hover .overlay {
+  opacity: 1;
+}
+
+/* ===================== ИНФО ===================== */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.titleRow h2 a {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+}
+
+.status {
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+
+.period {
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.description {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ===================== ТЕГИ ===================== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: auto;
+}
+
+.tag {
+  font-size: var(--fs-sm);
+  padding: 0.2em 0.6em;
+  background: rgba(74, 144, 184, 0.1);
+  border: 0.05em solid var(--color-accent);
+  border-radius: 0.4em;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* ===================== МОБИЛА ===================== */
+@media (max-width: 48em) {
+  .card {
+    flex-direction: column;
+  }
+
+  .imgWrap {
+    width: 100%;
+    height: 12em;
+  }
+}
