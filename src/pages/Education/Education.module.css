@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  font-size: var(--fs-md);
 }
 
 /* ===================== ШАПКА КАРТОЧКИ ===================== */
@@ -38,13 +39,13 @@
 }
 
 .degree {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-gold);
   font-weight: 600;
 }
 
 .school {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-gold);
   font-weight: 600;
 }
@@ -84,16 +85,21 @@
 }
 
 .list li {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text);
   line-height: 1.5;
 }
 
 /* ===================== КНОПКА СЕРТИФИКАТА ===================== */
 .certBtn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0.8em;
   /* --- Сброс --- */
   background: none;
   border: var(--border);
+  border-color: var(--color-accent);
   cursor: pointer;
 
   /* --- Размеры --- */
@@ -114,6 +120,14 @@
   background: var(--color-accent);
   color: white;
   border-color: var(--color-accent);
+}
+
+/* ===================== КНОПКИ ДОКУМЕНТОВ ===================== */
+.docBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: center;
 }
 
 /* ===================== МОБИЛА (до 48em) ===================== */

@@ -10,6 +10,21 @@ import Modal from '../../components/shared/Modal/Modal'
 import certTelRan from '../../assets/certificates/cert-telran.pdf'
 import certJS from '../../assets/certificates/cert-js.pdf'
 import certHTML from '../../assets/certificates/cert-html.pdf'
+import IconFilePdf from '../../assets/icons/IconFilePdf'
+
+/* --- Импорты изображений диплома --- */
+import diplomAlfarabi from '../../assets/certificates/diplom-alfarabi.jpg'
+import diplomTranslation from '../../assets/certificates/diplom-translation.jpg'
+import diplomTranscript1 from '../../assets/certificates/diplom-transcript-1.jpg'
+import diplomTranscript2 from '../../assets/certificates/diplom-transcript-2.jpg'
+
+/* --- Документы университета --- */
+const univDocs = [
+  { src: diplomAlfarabi, label: '📄 IHK Bescheid' },
+  { src: diplomTranslation, label: '📄 Diplom Übersetzung' },
+  { src: diplomTranscript1, label: '📄 Transcript Seite 1' },
+  { src: diplomTranscript2, label: '📄 Transcript Seite 2' },
+]
 
 /* ===================== АНИМАЦИЯ ===================== */
 const blockVariants = {
@@ -113,47 +128,57 @@ export default function Education() {
             <li key={item}>{item}</li>
           ))}
         </ul>
-      </motion.section>
+
+        {/* --- Одна кнопка для всех документов диплома --- */}
+        <button
+          className={styles.certBtn}
+          onClick={() => openModal(null, null, univDocs)}
+        >
+          <IconFilePdf /> Diplom & Dokumente ansehen
+        </button>
+      </motion.section >
 
       {/* ===== БЛОКИ 2-3: КУРСЫ ===== */}
-      {courses.map(({ title, school, period, hours, cert, certName, items }, index) => (
-        <motion.section
-          key={title}
-          className={styles.card}
-          variants={blockVariants}
-          initial="hidden"
-          animate="visible"
-          custom={index + 1}
-        >
-          {/* --- Шапка блока --- */}
-          <div className={styles.cardHeader}>
-            <div>
-              <h2 className={styles.cardTitle}>{title}</h2>
-              <p className={styles.school}>{school}</p>
-            </div>
-            <div className={styles.meta}>
-              <span className={styles.period}>{period}</span>
-              <span className={styles.hours}>{hours}</span>
-            </div>
-          </div>
-
-          {/* --- Описание --- */}
-          <ul className={styles.list}>
-            {items.map(item => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-
-          {/* --- Кнопка сертификата --- */}
-          <button
-            className={styles.certBtn}
-            onClick={() => openModal(cert, certName)}
+      {
+        courses.map(({ title, school, period, hours, cert, certName, items }, index) => (
+          <motion.section
+            key={title}
+            className={styles.card}
+            variants={blockVariants}
+            initial="hidden"
+            animate="visible"
+            custom={index + 1}
           >
-            📄 {certName}
-          </button>
+            {/* --- Шапка блока --- */}
+            <div className={styles.cardHeader}>
+              <div>
+                <h2 className={styles.cardTitle}>{title}</h2>
+                <p className={styles.school}>{school}</p>
+              </div>
+              <div className={styles.meta}>
+                <span className={styles.period}>{period}</span>
+                <span className={styles.hours}>{hours}</span>
+              </div>
+            </div>
 
-        </motion.section>
-      ))}
+            {/* --- Описание --- */}
+            <ul className={styles.list}>
+              {items.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+
+            {/* --- Кнопка сертификата --- */}
+            <button
+              className={styles.certBtn}
+              onClick={() => openModal(cert, certName)}
+            >
+              <IconFilePdf /> {certName}
+            </button>
+
+          </motion.section>
+        ))
+      }
 
       {/* ===== МОДАЛ С PDF ===== */}
       <Modal
@@ -163,6 +188,6 @@ export default function Education() {
         title={modal.title}
       />
 
-    </div>
+    </div >
   )
 }
