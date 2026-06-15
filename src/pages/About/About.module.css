@@ -1,140 +1,254 @@
 /* src/pages/About/About.module.css */
 
 /* ===================== ОСНОВНОЙ КОНТЕЙНЕР ===================== */
-
 .about {
-  /* --- Сетка --- */
   display: flex;
   flex-direction: column;
-
-  /* --- Отступы --- */
   gap: var(--space-sm);
 }
 
-/* ===================== БЛОК ФИО + ФОТО ===================== */
-
+/* ===================== БЛОК HERO ===================== */
 .hero {
-  /* --- Сетка: текст слева, фото справа --- */
-  display: grid;
-  grid-template-columns: 1fr auto;
-
-  /* --- Отступы --- */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-lg);
-  padding: var(--space-lg);
-
-  /* --- Оформление --- */
+  padding: var(--space-md);
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
   border: var(--border);
-
-  /* --- Выравнивание --- */
-  align-items: center;
-}
-
-/* ===================== ТЕКСТОВАЯ ЧАСТЬ ===================== */
-
-.info h1 {
-  text-align: center;
-
-  /* --- Типографика --- */
-  font-size: var(--fs-xl);
-  color: var(--color-accent);
-
-  /* --- Отступы --- */
-  margin-bottom: var(--space-md);
-}
-
-.info p {
-  /* --- Отступы --- */
-  margin-bottom: var(--space-xs);
-  margin-left: 3em;
 }
 
 /* ===================== ФОТО ===================== */
-
 .photo {
-  /* --- Размеры --- */
-  max-width: 15em;
-  /* height: 10em; */
-
-  /* --- Оформление --- */
+  min-width: 15em;
+  min-height: 15em;
+  height: 15em;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--color-bg);
+  border: 0.15em solid var(--color-accent);
+  flex-shrink: 0;
 }
 
 .photo img {
-  /* --- Растяжение изображения --- */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* ===================== БЛОК БИОГРАФИИ ===================== */
+/* ===================== ИНФОРМАЦИЯ ===================== */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-.bio {
+.name {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.role {
+  font-size: var(--fs-md);
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+/* ===================== БИОГРАФИЯ ===================== */
+.bioList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  font-size: var(--fs-base);
+  color: var(--color-text);
+}
+
+/* ===================== КАРТОЧКИ СЕКЦИЙ ===================== */
+.card {
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
-  padding: var(--space-lg);
   border: var(--border);
-  /* margin-top: var(--space-lg); */
-}
-
-.bio h2 {
-  margin-bottom: var(--space-md);
-}
-
-.bio p {
-  line-height: 1.6;
-}
-
-/* ===================== БЛОК КУРСОВ ===================== */
-
-.courses {
-  background: var(--color-surface);
-  backdrop-filter: var(--blur);
-  border-radius: var(--radius);
   padding: var(--space-lg);
-  border: var(--border);
-  /* margin-top: var(--space-lg); */
 }
 
-.courses h2 {
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
   margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: var(--border);
 }
 
-.courses ul {
-  list-style: disc;
-  padding-left: var(--space-lg);
-}
-
-.courses li {
+.card p {
+  line-height: 1.7;
   margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================== ТЕХНОЛОГИИ ===================== */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  gap: var(--space-md);
+}
+
+.techGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.techTitle {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===================== ТЕГИ ТЕХНОЛОГИЙ ===================== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.tag {
+  font-size: var(--fs-sm);
+  padding: 0.2em 0.6em;
+  background: rgba(74, 144, 184, 0.1);
+  border: 0.05em solid var(--color-accent);
+  border-radius: 0.4em;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* ===================== ТАЙМЛАЙН ОПЫТА ===================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.timelineItem {
+  padding-left: var(--space-md);
+  border-left: 0.2em solid var(--color-accent);
+}
+
+.period {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 0.2em !important;
+}
+
+.expRole {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.1em !important;
+}
+
+.company {
+  font-size: var(--fs-sm);
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs) !important;
+}
+
+.expList {
+  list-style: disc;
+  padding-left: var(--space-md);
+}
+
+.expList li {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  margin-bottom: 0.3em;
   line-height: 1.5;
 }
 
+/* ===================== ЯЗЫКИ ===================== */
+.languages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.langItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.langHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.langName {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+}
+
+.langLevel {
+  font-size: var(--fs-sm);
+  color: var(--color-gold);
+}
+
+/* ===================== ПРОГРЕСС БАР ===================== */
+.bar {
+  height: 0.4em;
+  background: rgba(74, 144, 184, 0.15);
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 1em;
+}
+
+/* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
 
   .hero {
-    /* --- Одна колонка вместо двух --- */
-    grid-template-columns: 1fr;
+    /* --- Одна колонка: фото сверху, инфо снизу --- */
+    /* grid-template-columns: 1fr; */
+    flex-direction: column;
     text-align: center;
   }
 
-  /* --- Фото первым через order --- */
   .photo {
-    order: -1;
-    max-width: 10em;
-    margin: 0 auto;
+    width: 8em;
+    height: 8em;
+    flex-shrink: 0;
+    align-self: center;
+    /* margin: 0 auto; */
   }
 
-  .info p {
-    margin-left: 0;
+  .contacts {
+    align-items: center;
   }
 
-  .info h1 {
-    text-align: center;
+  .techGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timelineItem {
+    padding-left: var(--space-sm);
   }
 }
