@@ -49,9 +49,9 @@ export default function CodeCanvas() {
         window.addEventListener('resize', resize)
 
         /* --- Настройки колонок --- */
-        const FONT_SIZE = 11
+        const FONT_SIZE = 15
         const FONT = `${FONT_SIZE}px 'Fira Code', monospace`
-        const LINE_GAP = 80  /* --- расстояние между колонками --- */
+        const LINE_GAP = 120  /* --- расстояние между колонками --- */
 
         /* --- Создаём колонки равномерно по ширине --- */
         const columns = Array.from(
@@ -59,9 +59,9 @@ export default function CodeCanvas() {
             (_, i) => ({
                 x: i * LINE_GAP + Math.random() * 20,
                 y: Math.random() * -500,           /* --- стартуем выше экрана --- */
-                speed: 0.4 + Math.random() * 0.8,      /* --- разная скорость --- */
+                speed: 0.3 + Math.random() * 0.8,      /* --- разная скорость --- */
                 snippet: snippets[Math.floor(Math.random() * snippets.length)],
-                opacity: 0.15 + Math.random() * 0.25,    /* --- полупрозрачность --- */
+                opacity: 0.35 + Math.random() * 0.3,    /* --- полупрозрачность --- */
             })
         )
 

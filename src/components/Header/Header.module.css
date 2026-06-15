@@ -55,8 +55,8 @@
 
 /* ===================== АВАТАР ===================== */
 .avatar {
-  width: 3.5em;
-  height: 3.5em;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -80,13 +80,13 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: var(--fs-md);
+  font-size: var(--fs-lg);
   color: var(--color-accent);
   line-height: 1.2;
 }
 
 .role {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text-muted);
 }
 
@@ -107,12 +107,13 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-muted);
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   padding: var(--space-xs);
   border-radius: var(--radius);
   transition: color var(--transition), background var(--transition);
+  font-size: 1.3em;
 }
 
 .btnIcon:hover {
