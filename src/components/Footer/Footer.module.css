@@ -2,18 +2,45 @@
 
 /* ===================== ПОДВАЛ ===================== */
 .footer {
-  /* --- Позиционирование в сетке --- */
-  grid-column: 1 / -1;
+  /* --- Горизонталь: иконки слева, копирайт справа --- */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  /* --- Отступы и размеры --- */
-  padding: var(--space-sm);
+  /* --- Отступы --- */
+  padding: var(--space-xs) var(--space-lg);
 
   /* --- Оформление --- */
   background: var(--color-surface);
+  backdrop-filter: var(--blur);
   border-top: var(--border);
-  text-align: center;
+}
 
-  /* --- Типографика --- */
-  font-size: var(--fs-sm);
+/* ===================== ИКОНКИ СОЦСЕТЕЙ ===================== */
+.socials {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+/* --- Размер иконок через CSS --- */
+.link svg {
+  width: 2em;
+  height: 2em;
+}
+
+/* ===================== КОПИРАЙТ ===================== */
+.copy {
+  font-size: var(--fs-base);
   color: var(--color-text-muted);
+}
+
+/* ===================== МОБИЛА (до 48em) ===================== */
+@media (max-width: 48em) {
+  .footer {
+    /* --- Колонка на мобиле --- */
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+  }
 }
