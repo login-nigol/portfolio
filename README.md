@@ -1,16 +1,16 @@
-# React + Vite
+# Portfolio – Vadim Antipov
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Persönliches Portfolio einer Full-Stack-Entwicklers.  
+Gebaut mit React 19, Vite, Framer Motion und CSS Modules.
 
-Currently, two official plugins are available:
+## Seiten
+- **Anschreiben** – Motivationsschreiben für Bewerbungen
+- **Über mich** – Kurzprofil und Skills
+- **Ausbildung** – Bildungsweg mit Accordion-UI
+- **Projekte** – Eigene Entwicklungsprojekte
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+React 19 · Vite · React Router · Framer Motion · CSS Modules
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy
+[Vercel](https://vercel.com)
