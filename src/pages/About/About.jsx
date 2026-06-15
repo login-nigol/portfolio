@@ -125,14 +125,18 @@ export default function About() {
       >
         <h2 className={styles.cardTitle}>Profil</h2>
         <p>
-          Full Stack Developer mit fundierten Kenntnissen in Java (Spring Boot) und React.
-          Entwickle aktiv <a href="https://lifeqr.kz" target="_blank" rel="noopener noreferrer">LifeQR.kz</a> —
-          eine produktive SaaS-Plattform mit Microservice-Architektur, JWT-Authentifizierung,
-          CI/CD-Pipeline und Docker-Deployment.
+          Full Stack Developer mit abgeschlossenen Kursen in Java (Spring Boot)
+          und React. Spezialisiert auf Backend-Entwicklung mit Microservice-Architektur
+          und modernem Frontend mit React 19.
         </p>
         <p>
-          Die Softwareentwicklung ist nicht nur mein Beruf — sie ist meine Leidenschaft.
-          Ich bin lernbereit, zielstrebig und suche ein erfahrenes Team, in dem ich wachsen kann.
+          Seit März 2026 entwickle ich aktiv <a href="https://lifeqr.kz" target="_blank" rel="noopener noreferrer">LifeQR.kz</a> —
+          eine produktive SaaS-Plattform mit Microservice-Architektur,
+          JWT-Authentifizierung, CI/CD und Docker-Deployment auf eigenem VPS.
+        </p>
+        <p>
+          Ich suche eine Junior-Stelle als Full Stack oder Backend Developer,
+          um in einem erfahrenen Team zu wachsen und echten Mehrwert zu liefern.
         </p>
       </motion.section>
 
