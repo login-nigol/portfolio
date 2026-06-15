@@ -22,20 +22,34 @@
 }
 
 /* ===================== ФОТО ===================== */
+/* --- Обёртка держит тень --- */
+.photoWrap {
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 2em 0.5em rgba(74, 144, 184, 0.4);
+}
+
 .photo {
   min-width: 15em;
   min-height: 15em;
   height: 15em;
   border-radius: 50%;
   overflow: hidden;
-  border: 0.15em solid var(--color-accent);
+  /* border: 0.15em solid var(--color-accent); */
   flex-shrink: 0;
+
+  /* box-shadow: 0 0 2em 0.5em rgba(74, 144, 184, 0.4); */
+
+  /* --- Маска на контейнере --- */
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at center, black 55%, transparent 100%);
 }
 
 .photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* border-radius: 50%; */
 }
 
 /* ===================== ИНФОРМАЦИЯ ===================== */

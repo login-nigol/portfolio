@@ -105,9 +105,11 @@ export default function About() {
         animate="visible"
         custom={0}
       >
-        {/* --- Фото --- */}
-        <div className={styles.photo}>
-          <img src={avatar} alt="Vadim Antipov — Full Stack Developer" />
+        {/* --- Фото с обёрткой для тени --- */}
+        <div className={styles.photoWrap}>
+          <div className={styles.photo}>
+            <img src={avatar} alt="Vadim Antipov — Full Stack Developer" />
+          </div>
         </div>
 
         {/* --- Инфо --- */}
