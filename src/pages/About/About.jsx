@@ -142,36 +142,13 @@ export default function About() {
         </p>
       </motion.section>
 
-      {/* ===== БЛОК 3: TECHNOLOGIEN ===== */}
+      {/* ===== БЛОК 3: BERUFSERFAHRUNG ===== */}
       <motion.section
         className={styles.card}
         variants={blockVariants}
         initial="hidden"
         animate="visible"
         custom={2}
-      >
-        <h2 className={styles.cardTitle}>Technologien</h2>
-        <div className={styles.techGrid}>
-          {techStack.map(({ title, items }) => (
-            <div key={title} className={styles.techGroup}>
-              <h3 className={styles.techTitle}>{title}</h3>
-              <div className={styles.tags}>
-                {items.map(item => (
-                  <span key={item} className={styles.tag}>{item}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* ===== БЛОК 4: BERUFSERFAHRUNG ===== */}
-      <motion.section
-        className={styles.card}
-        variants={blockVariants}
-        initial="hidden"
-        animate="visible"
-        custom={3}
       >
         <h2 className={styles.cardTitle}>Berufserfahrung</h2>
         <div className={styles.timeline}>
@@ -189,6 +166,29 @@ export default function About() {
           ))}
         </div>
       </motion.section>
+
+      {/* ===== БЛОК 4: TECHNOLOGIEN ===== */}
+      <motion.section
+        className={styles.card}
+        variants={blockVariants}
+        initial="hidden"
+        animate="visible"
+        custom={3}
+      >
+        <h2 className={styles.cardTitle}>Technologien</h2>
+        <div className={styles.techGrid}>
+          {techStack.map(({ title, items }) => (
+            <div key={title} className={styles.techGroup}>
+              <h3 className={styles.techTitle}>{title}</h3>
+              <div className={styles.tags}>
+                {items.map(item => (
+                  <span key={item} className={styles.tag}>{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>      
 
       {/* ===== БЛОК 5: SPRACHEN ===== */}
       <motion.section

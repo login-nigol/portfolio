@@ -91,10 +91,54 @@
   line-height: 1.7;
   margin-bottom: var(--space-sm);
   color: var(--color-text);
+  font-size: var(--fs-md);
 }
 
 .card p:last-child {
   margin-bottom: 0;
+}
+
+/* ===================== ТАЙМЛАЙН ОПЫТА ===================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.timelineItem {
+  padding-left: var(--space-md);
+  border-left: 0.2em solid var(--color-accent);
+}
+
+.period {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 0.2em !important;
+}
+
+.expRole {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.1em !important;
+}
+
+.company {
+  font-size: var(--fs-sm);
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs) !important;
+}
+
+.expList {
+  list-style: disc;
+  padding-left: var(--space-md);
+}
+
+.expList li {
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  margin-bottom: 0.3em;
+  line-height: 1.5;
 }
 
 /* ===================== ТЕХНОЛОГИИ ===================== */
@@ -135,49 +179,6 @@
   white-space: nowrap;
 }
 
-/* ===================== ТАЙМЛАЙН ОПЫТА ===================== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.timelineItem {
-  padding-left: var(--space-md);
-  border-left: 0.2em solid var(--color-accent);
-}
-
-.period {
-  font-size: var(--fs-sm);
-  color: var(--color-text-muted);
-  margin-bottom: 0.2em !important;
-}
-
-.expRole {
-  font-size: var(--fs-md);
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 0.1em !important;
-}
-
-.company {
-  font-size: var(--fs-sm);
-  color: var(--color-gold);
-  margin-bottom: var(--space-xs) !important;
-}
-
-.expList {
-  list-style: disc;
-  padding-left: var(--space-md);
-}
-
-.expList li {
-  font-size: var(--fs-sm);
-  color: var(--color-text);
-  margin-bottom: 0.3em;
-  line-height: 1.5;
-}
-
 /* ===================== ЯЗЫКИ ===================== */
 .languages {
   display: flex;
@@ -200,7 +201,7 @@
 .langName {
   font-weight: 600;
   color: var(--color-text);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
 }
 
 .langLevel {
