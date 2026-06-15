@@ -6,9 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 
 import styles from './Header.module.css'
-import avatar from '../../assets/images/avatar.png'
 import CodeCanvas from '../shared/CodeCanvas'
+
+import avatar from '../../assets/images/avatar.png'
 import IconShare from '../../assets/icons/IconShare'
+import IconMenuOpen from '../../assets/icons/IconMenuOpen'
+import IconMenuClose from '../../assets/icons/IconMenuClose'
 
 /* ===================== АНИМАЦИЯ ХЕДЕРА ===================== */
 const headerVariants = {
@@ -76,15 +79,17 @@ export default function Header() {
             <IconShare size="1.3em" color="currentColor" />
           </button>
 
+          {/* --- Кнопка бургера --- */}
           <button
-            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+            className={styles.burger}
             onClick={() => setMenuOpen(prev => !prev)}
             aria-label="Menü öffnen"
             aria-expanded={menuOpen}
           >
-            <span className={styles.burgerLine} />
-            <span className={styles.burgerLine} />
-            <span className={styles.burgerLine} />
+            {menuOpen
+              ? <IconMenuClose size="1.8em" color="var(--color-gold)" />
+              : <IconMenuOpen size="1.8em" color="var(--color-gold)" />
+            }
           </button>
 
         </div>

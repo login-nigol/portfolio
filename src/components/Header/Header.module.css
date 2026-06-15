@@ -94,7 +94,7 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   flex-shrink: 0;
   order: 2;
 
@@ -126,10 +126,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--space-xs);
+  /* padding: var(--space-xs); */
   display: none;
-  flex-direction: column;
-  gap: 0.3em;
+  align-items: center;
+  font-size: 1.5em;
   border-radius: var(--radius);
   transition: background var(--transition);
 }
@@ -203,6 +203,10 @@
 
   .name { font-size: var(--fs-lg); }
   .role { font-size: var(--fs-base); }
+
+  .btnIcon {
+    font-size: 1.1em;
+  }
 
   .burger { display: flex; }
 }
