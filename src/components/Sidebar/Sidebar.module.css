@@ -13,7 +13,7 @@
   /* --- Оформление --- */
   background: var(--color-surface);
   backdrop-filter: var(--blur);
-  border-right: var(--border);
+  border-left: var(--border);
   height: 100%;
 }
 

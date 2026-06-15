@@ -1,14 +1,28 @@
-/* src/App.module.css */
+/* src/styles/App.module.css */
+
+/* ===================== ОБЁРТКА ДЛЯ ОГРАНИЧЕНИЯ ===================== */
+
+.wrapper {
+  max-width: 90em;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
 
 /* ===================== ЛЕЙАУТ СЕТКА ===================== */
+
 .layout {
   display: grid;
-  grid-template-columns: 14em 1fr;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+  grid-template-columns: 1fr 14em;
+  flex: 1;
+  /* grid-template-rows: auto 1fr auto; */
+  /* min-height: 100vh; */
 }
 
 /* ===================== КОНТЕНТНАЯ ОБЛАСТЬ ===================== */
+
 .content {
   padding: var(--space-lg);
   overflow-y: auto;

@@ -16,6 +16,7 @@ import Projects from './pages/Projects/Projects'
 
 /* --- Глобальные стили --- */
 import './styles/global.css'
+import styles from './styles/App.module.css'
 
 /* ===================== КОМПОНЕНТ ===================== */
 export default function App() {
@@ -23,29 +24,33 @@ export default function App() {
     /* --- Роутер --- */
     <BrowserRouter>
 
-      {/* --- Шапка --- */}
-      <Header />
+      {/* --- Основной лейаут с ограничением ширины --- */}
+      <div className={styles.wrapper}>
 
-      {/* --- Основной лейаут --- */}
-      <div className="layout">
+        {/* --- Шапка --- */}
+        <Header />
 
-        {/* --- Сайдбар с навигацией --- */}
-        <Sidebar />
+        <div className={styles.layout}>
 
-        {/* --- Контентная область --- */}
-        <main className="content">
-          <Routes>
-            <Route path="/" element={<CoverLetter />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
-        </main>
+          {/* --- Контентная область --- */}
+          <main className={styles.content}>
+            <Routes>
+              <Route path="/" element={<CoverLetter />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/projects" element={<Projects />} />
+            </Routes>
+          </main>
+          
+          {/* --- Сайдбар с навигацией --- */}
+          <Sidebar />
+
+        </div>
+
+        {/* --- Подвал --- */}
+        <Footer />
 
       </div>
-
-      {/* --- Подвал --- */}
-      <Footer />
 
     </BrowserRouter>
   )
