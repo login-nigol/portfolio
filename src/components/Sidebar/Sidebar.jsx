@@ -4,20 +4,21 @@
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import styles from './Sidebar.module.css'
+import CodeCanvas from '../shared/CodeCanvas'
 
 /* ===================== АНИМАЦИЯ ===================== */
-/* Появление сайдбара справа при загрузке */
 const sidebarVariants = {
-  hidden:  { x: '100%', opacity: 0 },
+  hidden: { x: '100%', opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } }
 }
 
-/* --- Пункты меню --- */
+/* ===================== НАВИГАЦИЯ ===================== */
 const navItems = [
-  { to: '/',          label: 'Anschreiben' },
-  { to: '/about',     label: 'Über mich'   },
-  { to: '/education', label: 'Ausbildung'  },
-  { to: '/projects',  label: 'Projekte'    },
+  { to: '/', label: 'Anschreiben' },
+  { to: '/about', label: 'Über mich' },
+  { to: '/education', label: 'Ausbildung' },
+  { to: '/projects', label: 'Projekte' },
+  { to: '/contact', label: 'Kontakt' },
 ]
 
 /* ===================== КОМПОНЕНТ ===================== */
@@ -29,19 +30,26 @@ export default function Sidebar() {
       initial="hidden"
       animate="visible"
     >
-      {/* --- Навигационные ссылки из массива --- */}
-      {navItems.map(({ to, label }) => (
-        <NavLink
-          key={to}
-          to={to}
-          end
-          className={({ isActive }) =>
-            isActive ? `${styles.link} ${styles.active}` : styles.link
-          }
-        >
-          {label}
-        </NavLink>
-      ))}
+      {/* --- Канвас фон --- */}
+      <CodeCanvas
+        lineGap={30}
+      />
+
+      {/* --- Ссылки поверх канваса --- */}
+      <div className={styles.links}>
+        {navItems.map(({ to, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end
+            className={({ isActive }) =>
+              isActive ? `${styles.link} ${styles.active}` : styles.link
+            }
+          >
+            {label}
+          </NavLink>
+        ))}
+      </div>
 
     </motion.nav>
   )

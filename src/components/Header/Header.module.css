@@ -9,7 +9,7 @@
   /* --- Оформление --- */
   background: var(--color-surface);
   backdrop-filter: var(--blur);
-  border-bottom: var(--border);
+  /* border-bottom: var(--border); */
 
   /* --- z-index чтобы хедер был над контентом --- */
   z-index: 100;
@@ -80,14 +80,14 @@
 
 .name {
   font-family: var(--font-heading);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   color: var(--color-accent);
   line-height: 1.2;
 }
 
 .role {
-  font-size: var(--fs-base);
-  color: var(--color-text-muted);
+  font-size: var(--fs-md);
+  color: var(--color-gold);
 }
 
 /* ===================== КНОПКИ СПРАВА ===================== */
@@ -201,8 +201,8 @@
     height: 2.5em;
   }
 
-  .name { font-size: var(--fs-base); }
-  .role { display: none; }
+  .name { font-size: var(--fs-lg); }
+  .role { font-size: var(--fs-base); }
 
   .burger { display: flex; }
 }

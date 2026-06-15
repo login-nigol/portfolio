@@ -8,6 +8,7 @@
   --color-accent: #4a90b8;       /* акцент синий */
   --color-text: #2c3e50;         /* основной текст */
   --color-text-muted: #6b7280;   /* приглушённый текст */
+  --color-gold: #f0c040;
 
   /* Шрифты */
   --font-main: 'Nunito', sans-serif;
