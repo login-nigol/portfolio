@@ -1,0 +1,57 @@
+/* src/styles/global.css */
+
+/* ===================== ИМПОРТ ПЕРЕМЕННЫХ ===================== */
+@import './variables.css';
+
+/* ===================== ИМПОРТ ШРИФТОВ ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');
+
+/* ===================== СБРОС СТИЛЕЙ ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================== БАЗОВЫЕ СТИЛИ ===================== */
+html {
+  font-size: 16px; /* базовая точка для em */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===================== ТИПОГРАФИКА ===================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+/* ===================== УТИЛИТЫ ===================== */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
