@@ -2,30 +2,65 @@
 
 /* ===================== ШАПКА ===================== */
 .header {
-  /* --- Горизонталь: аватар / инфо / кнопки --- */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-md);
-
-  /* --- Отступы --- */
-  padding: var(--space-sm) var(--space-lg);
+  /* --- Относительное позиционирование для фона с кодом --- */
+  position: relative;
+  overflow: hidden;
 
   /* --- Оформление --- */
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-bottom: var(--border);
+
+  /* --- z-index чтобы хедер был над контентом --- */
+  z-index: 100;
+}
+
+/* ===================== ФОН: ПАДАЮЩИЙ КОД ===================== */
+
+.codeBackground {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.codeParticle {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  line-height: 1.4;
+
+  /* --- Каждый сниппет в своей колонке --- */
+  writing-mode: horizontal-tb;
+  display: block;
+}
+
+/* ===================== КОНТЕНТ ПОВЕРХ ФОНА ===================== */
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  position: relative;
+  z-index: 1;
+
+  /* --- Ограничиваем высоту хедера --- */
+  min-height: 5em;
 }
 
 /* ===================== АВАТАР ===================== */
 .avatar {
-  /* --- Фиксированный круг --- */
   width: 3.5em;
   height: 3.5em;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
   border: 0.1em solid var(--color-border);
+
+  /* --- Аватар первый слева --- */
+  order: 0;
 }
 
 .avatar img {
@@ -36,8 +71,8 @@
 
 /* ===================== ИМЯ И ДОЛЖНОСТЬ ===================== */
 .info {
-  /* --- Растягиваем — занимает всё свободное место --- */
   flex: 1;
+  order: 1;
 }
 
 .name {
@@ -52,51 +87,107 @@
   color: var(--color-text-muted);
 }
 
-/* ===================== КНОПКИ ===================== */
+/* ===================== КНОПКИ СПРАВА ===================== */
 .actions {
   display: flex;
+  align-items: center;
   gap: var(--space-xs);
   flex-shrink: 0;
+  order: 2;
+
+  /* --- Прижимаем вправо --- */
+  margin-left: auto;
 }
 
-.btn {
-  /* --- Отступы --- */
-  padding: var(--space-xs) var(--space-sm);
-
-  /* --- Оформление --- */
+/* ===================== КНОПКА ПОДЕЛИТЬСЯ ===================== */
+.btnIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  padding: var(--space-xs);
   border-radius: var(--radius);
-  border: var(--border);
-  background: transparent;
-  color: var(--color-text);
-
-  /* --- Анимация --- */
-  transition: all var(--transition);
-  font-size: var(--fs-sm);
+  transition: color var(--transition), background var(--transition);
 }
 
-.btn:hover {
+.btnIcon:hover {
+  color: var(--color-accent);
+  background: rgba(74, 144, 184, 0.1);
+}
+
+/* ===================== БУРГЕР ===================== */
+.burger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  display: none;
+  flex-direction: column;
+  gap: 0.3em;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.burger:hover {
+  background: rgba(74, 144, 184, 0.1);
+}
+
+/* ===================== ПОЛОСКИ БУРГЕРА ===================== */
+.burgerLine {
+  display: block;
+  width: 1.5em;
+  height: 0.15em;
+  background: var(--color-text);
+  border-radius: 0.1em;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.burgerOpen .burgerLine:nth-child(1) { transform: translateY(0.45em) rotate(45deg);   }
+.burgerOpen .burgerLine:nth-child(2) { opacity: 0; transform: scaleX(0);              }
+.burgerOpen .burgerLine:nth-child(3) { transform: translateY(-0.45em) rotate(-45deg); }
+
+/* ===================== ВЫПАДАШКА НАВИГАЦИИ ===================== */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-bottom: var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-sm);
+  gap: var(--space-xs);
+}
+
+/* ===================== ССЫЛКИ ВЫПАДАШКИ ===================== */
+.dropdownLink {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.dropdownLink:hover {
   background: var(--color-accent);
   color: white;
   opacity: 1;
-  border-color: var(--color-accent);
 }
 
-.btnAccent {
-  composes: btn;
-  /* --- Акцентная кнопка CV --- */
+.active {
   background: var(--color-accent);
   color: white;
-  border-color: var(--color-accent);
-}
-
-.btnAccent:hover {
-  opacity: 0.85;
 }
 
 /* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
-  .header {
-    /* --- На мобиле компактнее --- */
+  .content {
     padding: var(--space-xs) var(--space-sm);
     gap: var(--space-sm);
   }
@@ -106,9 +197,8 @@
     height: 2.5em;
   }
 
-  .actions {
-    /* --- Кнопки в колонку на очень маленьких экранах --- */
-    flex-direction: column;
-    gap: 0.3em;
-  }
+  .name { font-size: var(--fs-base); }
+  .role { display: none; }
+
+  .burger { display: flex; }
 }
