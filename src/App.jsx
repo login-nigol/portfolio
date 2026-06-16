@@ -14,6 +14,7 @@ import CoverLetter from './pages/CoverLetter/CoverLetter'
 import About from './pages/About/About'
 import Education from './pages/Education/Education'
 import Projects from './pages/Projects/Projects'
+import Print from './pages/Print/Print'
 
 /* --- Стили --- */
 import './styles/global.css'
@@ -32,6 +33,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/education" element={<Education />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/print" element={<Print />} />
       </Routes>
     </AnimatePresence>
   )

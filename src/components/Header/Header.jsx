@@ -10,6 +10,7 @@ import CodeCanvas from '../shared/CodeCanvas'
 
 import avatar from '../../assets/images/avatar.png'
 import IconShare from '../../assets/icons/IconShare'
+import IconPrint from '../../assets/icons/IconPrint'
 import IconMenuOpen from '../../assets/icons/IconMenuOpen'
 import IconMenuClose from '../../assets/icons/IconMenuClose'
 
@@ -48,6 +49,9 @@ export default function Header() {
     }
   }
 
+  /* --- Открыть страницу печати --- */
+  const handlePrint = () => window.open('/print', '_blank')
+
   return (
     <motion.header
       className={styles.header}
@@ -75,7 +79,22 @@ export default function Header() {
         {/* --- Кнопки справа --- */}
         <div className={styles.actions}>
 
-          <button className={styles.btnIcon} onClick={handleShare} aria-label="Seite teilen" title="Seite teilen">
+          {/* --- Кнопка печати страницы --- */}
+          <button
+            className={styles.btnIcon}
+            onClick={handlePrint}
+            aria-label="Drucken"
+            title="Drucken / Als PDF speichern"
+          >
+            <IconPrint color="var(--color-accent)" />
+          </button>
+
+          {/* --- Кнопка поделиться --- */}
+          <button className={styles.btnIcon}
+          onClick={handleShare}
+          aria-label="Seite teilen"
+          title="Seite teilen">
+            
             <IconShare size="1.3em" color="currentColor" />
           </button>
 

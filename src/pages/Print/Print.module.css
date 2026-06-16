@@ -1,0 +1,52 @@
+/* src/pages/Print/Print.module.css */
+
+/* ===================== КОНТЕЙНЕР ПЕЧАТИ ===================== */
+.print {
+  max-width: 50em;
+  margin: 0 auto;
+  padding: 2em;
+  font-size: 12px;
+  color: #000;
+  background: white;
+}
+
+/* ===================== ЗАГОЛОВОК ДОКУМЕНТА ===================== */
+.docHeader {
+  text-align: center;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 0.1em solid #ccc;
+}
+
+.docHeader h1 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+.docHeader p {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* ===================== СЕКЦИИ ===================== */
+.section {
+  margin-bottom: 2em;
+}
+
+/* ===================== РАЗРЫВ СТРАНИЦЫ ===================== */
+.pageBreak {
+  page-break-after: always;
+}
+
+/* ===================== МЕДИА ПЕЧАТЬ ===================== */
+@media print {
+  /* --- Скрываем всё лишнее --- */
+  header, nav, footer, .sidebar {
+    display: none !important;
+  }
+
+  .print {
+    padding: 0;
+    max-width: 100%;
+  }
+}
