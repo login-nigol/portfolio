@@ -81,12 +81,12 @@ export default function Header() {
 
           {/* --- Кнопка печати страницы --- */}
           <button
-            className={styles.btnIcon}
+            className={styles.btnPrint}
             onClick={handlePrint}
             aria-label="Drucken"
             title="Drucken / Als PDF speichern"
           >
-            <IconPrint color="var(--color-accent)" />
+            <IconPrint />
           </button>
 
           {/* --- Кнопка поделиться --- */}
@@ -94,7 +94,7 @@ export default function Header() {
           onClick={handleShare}
           aria-label="Seite teilen"
           title="Seite teilen">
-            
+
             <IconShare size="1.3em" color="currentColor" />
           </button>
 

@@ -102,6 +102,33 @@
   margin-left: auto;
 }
 
+/* ===================== КНОПКА ПЕЧАТИ ===================== */
+.btnPrint {
+  /* --- Сброс стилей кнопки --- */
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  /* --- Серый цвет --- */
+  color: var(--color-text-muted);
+
+  /* --- Размеры и выравнивание --- */
+  display: flex;
+  align-items: center;
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+  font-size: 1.3em;
+
+  /* --- Анимация --- */
+  transition: color var(--transition), background var(--transition);
+}
+
+/* --- Ховер --- */
+.btnPrint:hover {
+  color: var(--color-text);
+  background: rgba(107, 114, 128, 0.1);
+}
+
 /* ===================== КНОПКА ПОДЕЛИТЬСЯ ===================== */
 .btnIcon {
   background: none;
@@ -204,6 +231,10 @@
 
   .name { font-size: var(--fs-lg); }
   .role { font-size: var(--fs-base); }
+
+  .btnPrint {
+    display: none;
+  }
 
   .btnIcon {
     font-size: 1.1em;
