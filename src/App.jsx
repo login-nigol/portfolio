@@ -24,6 +24,12 @@ import styles from './styles/App.module.css'
 /* AnimatePresence должен видеть location — выносим в отдельный компонент */
 function AnimatedRoutes() {
   const location = useLocation()
+  const isPrint = location.pathname === '/print'
+
+  /* --- Для /print — чистый лейаут без хедера/сайдбара/футера --- */
+  if (isPrint) {
+    return <Print />
+  }
 
   return (
     /* --- key={location.pathname} — триггер для анимации при смене роута --- */
@@ -33,6 +39,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/education" element={<Education />} />
         <Route path="/projects" element={<Projects />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/print" element={<Print />} />
       </Routes>
     </AnimatePresence>
@@ -43,27 +50,24 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className={styles.wrapper}>
+      <Routes>
+        {/* --- /print без лейаута --- */}
+        <Route path="/print" element={<Print />} />
 
-        {/* --- Шапка --- */}
-        <Header />
-
-        <div className={styles.layout}>
-
-          {/* --- Контент со сменой роутов --- */}
-          <main className={styles.content}>
-            <AnimatedRoutes />
-          </main>
-
-          {/* --- Боковая навигация --- */}
-          <Sidebar />
-
-        </div>
-
-        {/* --- Подвал --- */}
-        <Footer />
-
-      </div>
+        {/* --- Все остальные с лейаутом --- */}
+        <Route path="/*" element={
+          <div className={styles.wrapper}>
+            <Header />
+            <div className={styles.layout}>
+              <main className={styles.content}>
+                <AnimatedRoutes />
+              </main>
+              <Sidebar />
+            </div>
+            <Footer />
+          </div>
+        } />
+      </Routes>
     </BrowserRouter>
   )
 }
