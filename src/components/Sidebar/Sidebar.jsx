@@ -14,8 +14,8 @@ const sidebarVariants = {
 
 /* ===================== НАВИГАЦИЯ ===================== */
 const navItems = [
-  { to: '/', label: 'Anschreiben' },
-  { to: '/about', label: 'Über mich' },
+  // { to: '/', label: 'Anschreiben' },
+  { to: '/', label: 'Über mich' },
   { to: '/education', label: 'Ausbildung' },
   { to: '/projects', label: 'Projekte' },
   { to: '/contact', label: 'Kontakt' },

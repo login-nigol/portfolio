@@ -28,7 +28,7 @@ const dropdownVariants = {
 
 /* ===================== НАВИГАЦИЯ ===================== */
 const navItems = [
-  { to: '/', label: 'Anschreiben' },
+  // { to: '/', label: 'Anschreiben' },
   { to: '/about', label: 'Über mich' },
   { to: '/education', label: 'Ausbildung' },
   { to: '/projects', label: 'Projekte' },
