@@ -57,19 +57,21 @@ export default function Contact() {
                 animate="visible"
                 custom={1}
             >
-                {contacts.map(({ label, value, href }) => (
-                    <div key={label} className={styles.contactItem}>
-                        <span className={styles.contactLabel}>{label}</span>
+                <div className={styles.contactList}>
+                    {contacts.map(({ label, value, href }) => (
+                        <div key={label} className={styles.contactItem}>
+                            <span className={styles.contactLabel}>{label}</span>
 
-                        <a href={href}
-                            target={href.startsWith('http') ? '_blank' : '_self'}
-                            rel="noopener noreferrer"
-                            className={styles.contactValue}
-                        >
-                            {value}
-                        </a>
-                    </div>
-                ))}
+                            <a href={href}
+                                target={href.startsWith('http') ? '_blank' : '_self'}
+                                rel="noopener noreferrer"
+                                className={styles.contactValue}
+                            >
+                                {value}
+                            </a>
+                        </div>
+                    ))}
+                </div>
             </motion.div>
 
             {/* ===== СОЦСЕТИ ===== */}
