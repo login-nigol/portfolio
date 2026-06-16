@@ -1,52 +1,146 @@
 /* src/pages/Print/Print.module.css */
 
-/* ===================== КОНТЕЙНЕР ПЕЧАТИ ===================== */
+/* ===================== ОСНОВНОЙ КОНТЕЙНЕР ===================== */
 .print {
-  max-width: 50em;
+  max-width: 48em;
   margin: 0 auto;
   padding: 2em;
-  font-size: 12px;
-  color: #000;
-  background: white;
-}
-
-/* ===================== ЗАГОЛОВОК ДОКУМЕНТА ===================== */
-.docHeader {
-  text-align: center;
-  margin-bottom: 2em;
-  padding-bottom: 1em;
-  border-bottom: 0.1em solid #ccc;
-}
-
-.docHeader h1 {
-  font-size: 2em;
-  margin-bottom: 0.3em;
-}
-
-.docHeader p {
+  font-family: 'Nunito', sans-serif;
   font-size: 0.9em;
-  color: #555;
+  color: #2c3e50;
+  background: white;
+  line-height: 1.5;
+}
+
+/* ===================== ШАПКА ===================== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding-bottom: 1em;
+  border-bottom: 0.15em solid #4a90b8;
+  margin-bottom: 1.5em;
+}
+
+.avatar {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 0.15em solid #4a90b8;
+}
+
+.headerInfo h1 {
+  font-size: 1.8em;
+  color: #4a90b8;
+  margin-bottom: 0.2em;
+}
+
+.role {
+  color: #f0c040;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.5em;
+  font-size: 0.85em;
+  color: #6b7280;
 }
 
 /* ===================== СЕКЦИИ ===================== */
 .section {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
-/* ===================== РАЗРЫВ СТРАНИЦЫ ===================== */
-.pageBreak {
-  page-break-after: always;
+.sectionTitle {
+  font-size: 1.1em;
+  color: #4a90b8;
+  border-bottom: 0.05em solid #b4c8dc;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section p {
+  margin-bottom: 0.5em;
+  color: #2c3e50;
+}
+
+/* ===================== ТЕХНОЛОГИИ ===================== */
+.techGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4em 2em;
+  font-size: 0.9em;
+}
+
+/* ===================== ЭЛЕМЕНТЫ ОПЫТА / ОБРАЗОВАНИЯ ===================== */
+.item {
+  margin-bottom: 0.8em;
+  padding-left: 0.8em;
+  border-left: 0.2em solid #4a90b8;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 0.2em;
+}
+
+.itemHeader strong {
+  color: #2c3e50;
+  font-size: 0.95em;
+}
+
+.itemHeader span {
+  color: #4a90b8;
+  font-size: 0.8em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item ul {
+  list-style: disc;
+  padding-left: 1.2em;
+  font-size: 0.85em;
+  color: #6b7280;
+}
+
+.item ul li {
+  margin-bottom: 0.2em;
+}
+
+.item p {
+  font-size: 0.85em;
+  color: #6b7280;
+}
+
+.link {
+  color: #4a90b8;
+  font-size: 0.8em;
 }
 
 /* ===================== МЕДИА ПЕЧАТЬ ===================== */
 @media print {
-  /* --- Скрываем всё лишнее --- */
-  header, nav, footer, .sidebar {
-    display: none !important;
+  .print {
+    max-width: 100%;
+    padding: 0;
+    font-size: 0.75em;
   }
 
-  .print {
-    padding: 0;
-    max-width: 100%;
+  .section {
+    page-break-inside: avoid;
+  }
+
+  /* --- Скрываем хедер сайта, сайдбар, футер --- */
+  header, nav, footer {
+    display: none;
   }
 }
