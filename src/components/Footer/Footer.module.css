@@ -65,4 +65,9 @@
     gap: var(--space-xs);
     padding: var(--space-xs);
   }
+
+  /* ===================== ИКОНКИ ===================== */
+  .socials {
+    gap: var(--space-lg);
+  }
 }
