@@ -15,6 +15,8 @@ import ScrollToTop from './components/shared/ScrollToTop'
 import About from './pages/About/About'
 import Education from './pages/Education/Education'
 import Projects from './pages/Projects/Projects'
+import Contact from './pages/Contact/Contact'
+
 import Print from './pages/Print/Print'
 
 /* --- Стили --- */
@@ -67,6 +69,7 @@ export default function App() {
           <Route path="/about"      element={<About />}     />
           <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
 
       </Routes>

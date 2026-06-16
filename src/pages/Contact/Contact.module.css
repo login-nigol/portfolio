@@ -1,0 +1,113 @@
+/* src/pages/Contact/Contact.module.css */
+
+/* ===================== ОСНОВНОЙ КОНТЕЙНЕР ===================== */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ===================== КАРТОЧКА ===================== */
+.card {
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: var(--border);
+  padding: var(--space-lg);
+}
+
+/* ===================== ЗАГОЛОВОК ===================== */
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.subtitle {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: var(--border);
+}
+
+/* ===================== КОНТАКТЫ ===================== */
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: var(--border);
+}
+
+.contactItem:last-child {
+  border-bottom: none;
+}
+
+.contactLabel {
+  font-weight: 700;
+  color: var(--color-gold);
+  font-size: var(--fs-sm);
+  min-width: 6em;
+}
+
+.contactValue {
+  color: var(--color-accent);
+  font-size: var(--fs-base);
+  transition: opacity var(--transition);
+}
+
+.contactValue:hover {
+  opacity: 0.75;
+}
+
+/* ===================== СОЦСЕТИ ===================== */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text);
+  font-size: var(--fs-base);
+  transition: all var(--transition);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius);
+  border: var(--border);
+}
+
+.socialLink svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.socialLink:hover {
+  background: rgba(74, 144, 184, 0.1);
+  opacity: 1;
+}
+
+/* ===================== МОБИЛА (до 48em) ===================== */
+@media (max-width: 48em) {
+  .card {
+    padding: var(--space-md);
+  }
+
+  .socials {
+    gap: var(--space-sm);
+  }
+
+  .contactLabel {
+    min-width: 5em;
+  }
+}
