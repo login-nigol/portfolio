@@ -18,11 +18,10 @@
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
-  border: var(--border);
+  box-shadow: var(--shadow);
 }
 
 /* ===================== ФОТО ===================== */
-/* --- Обёртка держит тень --- */
 .photoWrap {
   flex-shrink: 0;
   border-radius: 50%;
@@ -35,12 +34,7 @@
   height: 15em;
   border-radius: 50%;
   overflow: hidden;
-  /* border: 0.15em solid var(--color-accent); */
   flex-shrink: 0;
-
-  /* box-shadow: 0 0 2em 0.5em rgba(74, 144, 184, 0.4); */
-
-  /* --- Маска на контейнере --- */
   -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, black 55%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 80% at center, black 55%, transparent 100%);
 }
@@ -49,7 +43,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* border-radius: 50%; */
 }
 
 /* ===================== ИНФОРМАЦИЯ ===================== */
@@ -88,8 +81,8 @@
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
-  border: var(--border);
-  padding: var(--space-lg);
+  box-shadow: var(--shadow);
+  padding: var(--space-md);
 }
 
 .cardTitle {
@@ -104,7 +97,6 @@
 .card p {
   line-height: 1.7;
   margin-bottom: var(--space-sm);
-  /* color: var(--color-text); */
   font-size: var(--fs-md);
 }
 
@@ -155,27 +147,6 @@
   line-height: 1.5;
 }
 
-/* ===================== ТЕХНОЛОГИИ ===================== */
-.techGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-  gap: var(--space-md);
-}
-
-.techGroup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.techTitle {
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 /* ===================== ТЕГИ ТЕХНОЛОГИЙ ===================== */
 .tags {
   display: flex;
@@ -202,7 +173,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-
   max-width: 30em;
   margin: 0 auto;
 }
@@ -257,23 +227,27 @@
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: var(--space-md);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
   }
 
   .photo {
-    width: 8em;
+    min-width: 8em;
+    min-height: 8em;
     height: 8em;
-    flex-shrink: 0;
-    align-self: center;
-    /* margin: 0 auto; */
   }
 
-  .contacts {
-    align-items: center;
+  .card {
+    padding: var(--space-sm);
   }
 
-  .techGrid {
-    grid-template-columns: 1fr 1fr;
+  .cardTitle {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .card p {
+    font-size: var(--fs-base);
   }
 
   .timelineItem {

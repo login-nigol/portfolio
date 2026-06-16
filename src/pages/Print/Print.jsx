@@ -160,7 +160,7 @@ export default function Print() {
             </div>
 
             {/* ===== SPRACHEN ===== */}
-            <div className={styles.section}>
+            {/* <div className={styles.section}>
                 <h2 className={styles.sectionTitle}>Sprachen</h2>
                 <div className={styles.techGrid}>
                     <div><strong>Russisch</strong> — Muttersprache</div>
@@ -168,7 +168,7 @@ export default function Print() {
                     <div><strong>Englisch</strong> — A2+</div>
                     <div><strong>Kasachisch</strong> — B1</div>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     )

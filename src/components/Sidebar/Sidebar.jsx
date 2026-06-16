@@ -13,9 +13,9 @@ const sidebarVariants = {
 }
 
 /* ===================== НАВИГАЦИЯ ===================== */
+/* --- Синхронизировано с Header --- */
 const navItems = [
-  // { to: '/', label: 'Anschreiben' },
-  { to: '/', label: 'Über mich' },
+  { to: '/about', label: 'Über mich' },
   { to: '/education', label: 'Ausbildung' },
   { to: '/projects', label: 'Projekte' },
   { to: '/contact', label: 'Kontakt' },
@@ -31,9 +31,7 @@ export default function Sidebar() {
       animate="visible"
     >
       {/* --- Канвас фон --- */}
-      <CodeCanvas
-        lineGap={20}
-      />
+      <CodeCanvas lineGap={20} />
 
       {/* --- Ссылки поверх канваса --- */}
       <div className={styles.links}>
@@ -41,7 +39,6 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
-            end
             className={({ isActive }) =>
               isActive ? `${styles.link} ${styles.active}` : styles.link
             }

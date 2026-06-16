@@ -8,7 +8,6 @@ import { AnimatePresence } from 'framer-motion'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Footer from './components/Footer/Footer'
-
 import ScrollToTop from './components/shared/ScrollToTop'
 
 /* --- Страницы --- */
@@ -16,23 +15,11 @@ import About from './pages/About/About'
 import Education from './pages/Education/Education'
 import Projects from './pages/Projects/Projects'
 import Contact from './pages/Contact/Contact'
-
 import Print from './pages/Print/Print'
 
 /* --- Стили --- */
 import './styles/global.css'
 import styles from './styles/App.module.css'
-
-/* ===================== АНИМИРОВАННЫЙ OUTLET ===================== */
-/* --- Outlet — место куда подставляется текущая страница --- */
-function AnimatedOutlet() {
-  const location = useLocation()
-  return (
-    <AnimatePresence mode="wait">
-      <Outlet key={location.pathname} />
-    </AnimatePresence>
-  )
-}
 
 /* ===================== ЛЕЙАУТ ===================== */
 function Layout() {
@@ -43,6 +30,7 @@ function Layout() {
       <Header />
       <div className={styles.layout}>
         <main className={styles.content}>
+          {/* --- AnimatePresence для анимации между роутами --- */}
           <AnimatePresence mode="wait">
             <Outlet key={location.pathname} />
           </AnimatePresence>
@@ -65,8 +53,8 @@ export default function App() {
 
         {/* --- Все остальные через Layout --- */}
         <Route element={<Layout />}>
-          <Route index        element={<About />}     />
-          <Route path="/about"      element={<About />}     />
+          <Route index element={<About />} />
+          <Route path="/about" element={<About />} />
           <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />

@@ -12,7 +12,7 @@
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
-  border: var(--border);
+  box-shadow: var(--shadow);
   padding: var(--space-md);
 }
 
@@ -49,7 +49,7 @@
 
 .contactItem {
   display: flex;
-  align-items: center;  
+  align-items: center;
   gap: var(--space-md);
   padding: var(--space-sm) 0;
   border-bottom: var(--border);
@@ -95,7 +95,9 @@
   transition: all var(--transition);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius);
-  border: var(--border);
+  /* --- Лёгкая тень вместо бордера --- */
+  box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .socialLink svg {
@@ -105,20 +107,28 @@
 
 .socialLink:hover {
   background: rgba(74, 144, 184, 0.1);
+  box-shadow: var(--shadow);
   opacity: 1;
+  transform: translateY(-0.1em);
 }
 
 /* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
   .card {
-    padding: var(--space-md);
-  }
-
-  .socials {
-    gap: var(--space-sm);
+    padding: var(--space-sm);
   }
 
   .contactLabel {
     display: none;
+    /* min-width: 4em;
+    font-size: var(--fs-sm); */
+  }
+
+  .contactValue {
+    font-size: var(--fs-base);
+  }
+
+  .socials {
+    gap: var(--space-sm);
   }
 }

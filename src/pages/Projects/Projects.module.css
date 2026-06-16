@@ -4,7 +4,7 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
 }
 
 /* ===================== КАРТОЧКА ===================== */
@@ -14,20 +14,18 @@
   background: var(--color-surface);
   backdrop-filter: var(--blur);
   border-radius: var(--radius);
-  border: var(--border);
-  border-color: var(--color-accent);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  min-height: 16em;
+  min-height: 14em;
 }
 
 /* ===================== КАРТИНКА ===================== */
 .imgWrap {
   position: relative;
-  width: 45%;
+  width: 42%;
   flex-shrink: 0;
   overflow: hidden;
   display: block;
-
   padding: var(--space-sm);
 }
 
@@ -37,9 +35,8 @@
   object-fit: cover;
   display: block;
   transition: transform var(--transition);
-
   border-radius: var(--radius);
-  box-shadow: 0 0 1.5em 0.3em rgba(74, 144, 184, 0.35);
+  box-shadow: 0 0 1.5em 0.3em rgba(74, 144, 184, 0.3);
 }
 
 .imgWrap:hover img {
@@ -59,6 +56,8 @@
   color: white;
   font-size: var(--fs-md);
   font-weight: 700;
+  border-radius: var(--radius);
+  margin: var(--space-sm);
 }
 
 .imgWrap:hover .overlay {
@@ -70,8 +69,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-lg);
+  gap: var(--space-xs);
+  padding: var(--space-md);
 }
 
 /* ===================== ЗАГОЛОВОК ===================== */
@@ -127,10 +126,20 @@
 @media (max-width: 48em) {
   .card {
     flex-direction: column;
+    min-height: unset;
   }
 
   .imgWrap {
     width: 100%;
-    height: 12em;
+    height: 11em;
+    padding: var(--space-xs);
+  }
+
+  .info {
+    padding: var(--space-sm);
+  }
+
+  .titleRow h2 a {
+    font-size: var(--fs-md);
   }
 }

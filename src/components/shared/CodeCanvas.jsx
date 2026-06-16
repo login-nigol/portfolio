@@ -19,7 +19,7 @@ const TOKEN_COLORS = {
 function tokenColor(word) {
     if (/^(import|export|default|const|let|var|return|function|class|new|from|if|else|async|await|void|private|public)$/.test(word))
         return TOKEN_COLORS.keyword
-    if (/^['"`].*['"`]$/.test(word) || word.startsWith("'") || word.startsWith('"'))
+    if (/^['\"`].*['\"`]$/.test(word) || word.startsWith("'") || word.startsWith('"'))
         return TOKEN_COLORS.string
     if (/^\d+$/.test(word))
         return TOKEN_COLORS.number
@@ -33,12 +33,12 @@ function tokenColor(word) {
 }
 
 /* ===================== ПРОПСЫ ПО УМОЛЧАНИЮ ===================== */
-/* --- Каждый компонент может переопределить под себя --- */
+/* --- opacity: базовое значение + случайный диапазон поверх --- */
 const defaultProps = {
     fontSize: 15,
     lineGap: 120,
-    minOpacity: 0.35,
-    maxOpacity: 0.3,
+    baseOpacity: 0.25,   /* минимальная прозрачность колонки */
+    opacityRange: 0.15,   /* сколько добавляется случайно сверху */
     minSpeed: 0.3,
     maxSpeed: 0.8,
 }
@@ -47,8 +47,8 @@ const defaultProps = {
 export default function CodeCanvas({
     fontSize = defaultProps.fontSize,
     lineGap = defaultProps.lineGap,
-    minOpacity = defaultProps.minOpacity,
-    maxOpacity = defaultProps.maxOpacity,
+    baseOpacity = defaultProps.baseOpacity,
+    opacityRange = defaultProps.opacityRange,
     minSpeed = defaultProps.minSpeed,
     maxSpeed = defaultProps.maxSpeed,
 }) {
@@ -74,9 +74,9 @@ export default function CodeCanvas({
             (_, i) => ({
                 x: i * lineGap + Math.random() * 20,
                 y: Math.random() * -500,
-                speed: minSpeed + Math.random() * maxSpeed,
+                speed: minSpeed + Math.random() * (maxSpeed - minSpeed),
                 snippet: snippets[Math.floor(Math.random() * snippets.length)],
-                opacity: minOpacity + Math.random() * maxOpacity,
+                opacity: baseOpacity + Math.random() * opacityRange,
             })
         )
 
@@ -93,10 +93,10 @@ export default function CodeCanvas({
                 if (col.y > canvas.height + 20) {
                     col.y = Math.random() * -200
                     col.snippet = snippets[Math.floor(Math.random() * snippets.length)]
-                    col.speed = minSpeed + Math.random() * maxSpeed
+                    col.speed = minSpeed + Math.random() * (maxSpeed - minSpeed)
                 }
 
-                /* --- Рисуем слова с подсветкой --- */
+                /* --- Рисуем слова с подсветкой синтаксиса --- */
                 const words = col.snippet.split(' ')
                 let offsetX = col.x
 
@@ -117,7 +117,7 @@ export default function CodeCanvas({
             cancelAnimationFrame(animId)
             window.removeEventListener('resize', resize)
         }
-    }, [fontSize, lineGap, minOpacity, maxOpacity, minSpeed, maxSpeed])
+    }, [fontSize, lineGap, baseOpacity, opacityRange, minSpeed, maxSpeed])
 
     return (
         <canvas

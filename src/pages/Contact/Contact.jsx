@@ -20,15 +20,16 @@ const blockVariants = {
 /* ===================== КОНТАКТЫ ===================== */
 const contacts = [
     { label: 'Email', value: 'vadim.antipov@gmx.de', href: 'mailto:vadim.antipov@gmx.de' },
-    { label: 'Telefon', value: '+49 174 48 43 902', href: 'tel:+4917448943902' },
+    { label: 'Telefon', value: '+49 174 48 43 902', href: 'tel:+491744843902' },
     { label: 'LinkedIn', value: 'linkedin.com/in/vadimantipov', href: 'https://linkedin.com/in/vadimantipov' },
 ]
 
 /* ===================== СОЦСЕТИ ===================== */
+/* --- ВАЖНО: заменить t.me/ВАШ_USERNAME на реальный --- */
 const socials = [
     { href: 'https://github.com/login-nigol', Icon: IconGithub, label: 'GitHub', color: '#333333' },
     { href: 'https://linkedin.com/in/vadimantipov', Icon: IconLinkedin, label: 'LinkedIn', color: '#0077b5' },
-    { href: 'https://t.me/username', Icon: IconTelegram, label: 'Telegram', color: '#229ed9' },
+    { href: 'https://t.me/vadimalmata', Icon: IconTelegram, label: 'Telegram', color: '#229ed9' },
     { href: 'https://wa.me/4917448943902', Icon: IconWhatsapp, label: 'WhatsApp', color: '#25d366' },
 ]
 
@@ -61,8 +62,8 @@ export default function Contact() {
                     {contacts.map(({ label, value, href }) => (
                         <div key={label} className={styles.contactItem}>
                             <span className={styles.contactLabel}>{label}</span>
-
-                            <a href={href}
+                            <a
+                                href={href}
                                 target={href.startsWith('http') ? '_blank' : '_self'}
                                 rel="noopener noreferrer"
                                 className={styles.contactValue}
@@ -85,8 +86,8 @@ export default function Contact() {
                 <h2 className={styles.cardTitle}>Social Media</h2>
                 <div className={styles.socials}>
                     {socials.map(({ href, Icon, label, color }) => (
-
-                        <a key={label}
+                        <a
+                            key={label}
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"

@@ -2,15 +2,10 @@
 
 /* ===================== ОБЁРТКА ===================== */
 .wrapper {
-  /* --- Весь экран, без вылезания --- */
   height: 100vh;
   overflow: hidden;
-
-  /* --- Вертикальная колонка: header / layout / footer --- */
   display: flex;
   flex-direction: column;
-
-  /* --- Центрируем на широких экранах --- */
   max-width: 90em;
   margin: 0 auto;
   width: 100%;
@@ -18,23 +13,16 @@
 
 /* ===================== СРЕДНЯЯ ЗОНА ===================== */
 .layout {
-  /* --- Desktop: контент слева, сайдбар справа --- */
   display: flex;
   flex-direction: row;
-
-  /* --- Занимает всё между header и footer --- */
   flex: 1;
   overflow: hidden;
 }
 
 /* ===================== КОНТЕНТНАЯ ОБЛАСТЬ ===================== */
 .content {
-  /* --- Растягивается на всю ширину --- */
   flex: 1;
-
-  /* --- Только здесь скроллится --- */
   overflow-y: auto;
-
   padding: var(--space-sm);
 }
 
@@ -45,13 +33,12 @@
     flex-direction: column;
   }
 
-  /* --- Скрываем сайдбар на мобиле --- */
+  /* --- Скрываем сайдбар на мобиле (навигация в бургере хедера) --- */
   .layout > nav {
     display: none;
   }
 
   .content {
-    /* --- Меньше отступы на маленьком экране --- */
-    padding: var(--space-sm);
+    padding: var(--space-xs);
   }
 }
