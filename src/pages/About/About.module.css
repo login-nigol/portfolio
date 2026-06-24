@@ -171,7 +171,7 @@
   font-size: var(--fs-base);
   padding: 0.2em 0.6em;
   background: rgba(74, 144, 184, 0.1);
-  border: 0.05em solid var(--color-accent);
+  border: 0.05em solid var(--color-gold);
   border-radius: 0.4em;
   color: var(--color-accent);
   white-space: nowrap;

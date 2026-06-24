@@ -6,6 +6,7 @@
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--color-surface);
+  /* border: 0.05em solid var(--color-gold); */
 }
 
 /* ===================== КНОПКА ЗАГОЛОВКА ===================== */
