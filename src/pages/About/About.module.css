@@ -91,6 +91,12 @@
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: var(--space-md);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: scale(1.01);
+  transition: transform 0.8s ease;
 }
 
 .cardTitle {
@@ -134,13 +140,13 @@
   font-size: var(--fs-md);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 0.1em !important;
+  margin-bottom: 0.1em;
 }
 
 .company {
   font-size: var(--fs-sm);
   color: var(--color-gold);
-  margin-bottom: var(--space-xs) !important;
+  margin-bottom: var(--space-xs);
 }
 
 .expList {
