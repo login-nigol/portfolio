@@ -99,7 +99,7 @@
 }
 
 .description {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   color: var(--color-text);
   line-height: 1.6;
 }

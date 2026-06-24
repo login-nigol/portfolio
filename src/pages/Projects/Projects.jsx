@@ -7,6 +7,9 @@ import styles from './Projects.module.css'
 import imgLifeQR from '../../assets/images/projects/lifeqr_kz.jpg'
 import imgRodnik from '../../assets/images/projects/rodnik_de.jpg'
 import imgPixora from '../../assets/images/projects/Pixora_A__Studio_de.jpg'
+import imgClock from '../../assets/images/projects/svg_clock.jpg'
+import imgTennis from '../../assets/images/projects/tennis_dom.jpg'
+import imgForm from '../../assets/images/projects/dynamic_form.jpg'
 
 /* ===================== ДАННЫЕ ===================== */
 const projects = [
@@ -36,6 +39,33 @@ const projects = [
     description: 'Canvas-basierter Grafikeditor im Browser. Ebenensystem, Zeichenwerkzeuge, Undo/Redo, PNG-Export.',
     stack: ['HTML5', 'CSS3', 'JavaScript ES6+', 'Canvas API'],
     image: imgPixora,
+  },
+  {
+    title: 'SVG Clock',
+    url: 'https://login-nigol.github.io/HOMEWORK/37-CLOCK_SVG/',
+    period: '2025',
+    status: '🟢 Online',
+    description: 'Analoge SVG-Uhr mit JavaScript. Zeigt die aktuelle Uhrzeit mit animierten Zeigern und digitalem Display.',
+    stack: ['HTML5', 'SVG', 'JavaScript ES6+'],
+    image: imgClock,
+  },
+  {
+    title: 'Tennis Canvas',
+    url: 'https://login-nigol.github.io/HOMEWORK/50-TENNIS_CANVAS/',
+    period: '2025',
+    status: '🟢 Online',
+    description: 'Pong-Spiel im Browser. Canvas-Animation, Kollisionserkennung und Punktestand.',
+    stack: ['HTML5', 'Canvas API', 'JavaScript ES6+'],
+    image: imgTennis,
+  },
+  {
+    title: 'Dynamic Form',
+    url: 'https://login-nigol.github.io/HOMEWORK/27-VALID_DYN_FORM/',
+    period: '2025',
+    status: '🟢 Online',
+    description: 'Dynamisches Formular mit Echtzeit-Validierung. Pflichtfelder, Fehlermeldungen und UX-Feedback.',
+    stack: ['HTML5', 'CSS3', 'JavaScript ES6+'],
+    image: imgForm,
   },
 ]
 
