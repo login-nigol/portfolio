@@ -158,6 +158,28 @@ export default function About() {
         </p>
       </motion.section>
 
+      {/* ===== БЛОК: STATS ===== */}
+      <motion.div
+        className={styles.stats}
+        variants={blockVariants}
+        initial="hidden"
+        animate="visible"
+        custom={1.5}
+      >
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>2+</span>
+          <span className={styles.statLabel}>Jahre Erfahrung</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>6</span>
+          <span className={styles.statLabel}>Projekte</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>560h</span>
+          <span className={styles.statLabel}>Ausbildung</span>
+        </div>
+      </motion.div>
+
       {/* ===== БЛОК 3: BERUFSERFAHRUNG ===== */}
       <motion.section
         className={styles.card}

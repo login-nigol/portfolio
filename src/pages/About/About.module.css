@@ -161,6 +161,36 @@
   line-height: 1.5;
 }
 
+/* ===================== СТАТИСТИКА ===================== */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-surface);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow), var(--shadow-inset);
+  padding: var(--space-md);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.statLabel {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
 /* ===================== ТЕГИ ТЕХНОЛОГИЙ ===================== */
 .tags {
   display: flex;
