@@ -117,6 +117,12 @@ export default function About() {
           <h1 className={styles.name}>Vadim Antipov</h1>
           <p className={styles.role}>Full Stack Developer · Java + React · Microservices</p>
 
+          <p className={styles.webLinks}>
+            <a href="https://perunix-web.de" target="_blank" rel="noopener noreferrer">perunix-web.de</a>
+            {' / '}
+            <a href="https://perunix-web.com" target="_blank" rel="noopener noreferrer">perunix-web.com</a>
+          </p>
+
           <ul className={styles.bioList}>
             <li>Geboren am 29.08.1980 in Almaty, Kasachstan</li>
             <li>2003 als Spätaussiedler nach Deutschland</li>

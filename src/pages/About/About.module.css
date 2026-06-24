@@ -63,8 +63,16 @@
 .role {
   font-size: var(--fs-md);
   color: var(--color-gold);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
   font-weight: 600;
+}
+
+.webLinks {
+  font-size: var(--fs-md);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+  /* margin-top: 0.3em; */
+  opacity: 0.8;
 }
 
 /* ===================== БИОГРАФИЯ ===================== */
