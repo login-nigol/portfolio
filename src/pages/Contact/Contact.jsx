@@ -30,7 +30,7 @@ const socials = [
     { href: 'https://github.com/login-nigol', Icon: IconGithub, label: 'GitHub', color: '#333333' },
     { href: 'https://linkedin.com/in/vadimantipov', Icon: IconLinkedin, label: 'LinkedIn', color: '#0077b5' },
     { href: 'https://t.me/vadimalmata', Icon: IconTelegram, label: 'Telegram', color: '#229ed9' },
-    { href: 'https://wa.me/4917448943902', Icon: IconWhatsapp, label: 'WhatsApp', color: '#25d366' },
+    { href: 'https://wa.me/491744843902', Icon: IconWhatsapp, label: 'WhatsApp', color: '#25d366' },
 ]
 
 /* ===================== КОМПОНЕНТ ===================== */
