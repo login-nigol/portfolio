@@ -21,7 +21,7 @@ const projects = [
   },
   {
     title: 'РОДНИКЪ',
-    url: 'https://rodnik.de',
+    url: 'https://login-nigol.github.io/RODNIK/#home',
     period: '2025 — Heute',
     status: '🟡 In Entwicklung',
     description: 'Russischsprachiger Bauernmarkt-Marktplatz. Verbindet Landwirte direkt mit Verbrauchern — ohne Zwischenhändler.',
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: 'Pixora A. Studio',
-    url: 'https://login-nigol.github.io/pixora',
+    url: 'https://login-nigol.github.io/HOMEWORK/pixora-a-studio/src/',
     period: 'Okt 2025 — Heute',
     status: '🟢 Online',
     description: 'Canvas-basierter Grafikeditor im Browser. Ebenensystem, Zeichenwerkzeuge, Undo/Redo, PNG-Export.',
