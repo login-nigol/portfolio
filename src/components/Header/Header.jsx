@@ -1,7 +1,7 @@
 // src/components/Header/Header.jsx
 
 /* ===================== ИМПОРТЫ ===================== */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 
@@ -35,6 +35,15 @@ const navItems = [
   { to: '/contact', label: 'Kontakt' },
 ]
 
+/* --- Тексты для typewriter --- */
+const roles = [
+  'Full Stack Developer',
+  'Java + React',
+  'Microservices',
+  'Backend Developer',
+  'Frontend Developer',
+]
+
 /* ===================== КОМПОНЕНТ ===================== */
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -51,6 +60,41 @@ export default function Header() {
 
   /* --- Открыть страницу печати --- */
   const handlePrint = () => window.open('/print', '_blank')
+
+  /* --- Typewriter effect --- */
+  const [roleText, setRoleText] = useState('')
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    const current = roles[roleIndex]
+
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        /* --- Печатаем --- */
+        setRoleText(current.slice(0, charIndex + 1))
+        if (charIndex + 1 === current.length) {
+          /* --- Пауза перед удалением --- */
+          setTimeout(() => setDeleting(true), 1500)
+        } else {
+          setCharIndex(prev => prev + 1)
+        }
+      } else {
+        /* --- Удаляем --- */
+        setRoleText(current.slice(0, charIndex - 1))
+        if (charIndex - 1 === 0) {
+          setDeleting(false)
+          setCharIndex(0)
+          setRoleIndex(prev => (prev + 1) % roles.length)
+        } else {
+          setCharIndex(prev => prev - 1)
+        }
+      }
+    }, deleting ? 50 : 80)
+
+    return () => clearTimeout(timeout)
+  }, [charIndex, deleting, roleIndex])
 
   return (
     <motion.header
@@ -73,7 +117,7 @@ export default function Header() {
         {/* --- Имя и должность --- */}
         <div className={styles.info}>
           <h1 className={styles.name}>Vadim Antipov</h1>
-          <p className={styles.role}>Full Stack Developer</p>
+          <p className={styles.role}>{roleText}<span>|</span></p>
         </div>
 
         {/* --- Кнопки справа --- */}
@@ -91,9 +135,9 @@ export default function Header() {
 
           {/* --- Кнопка поделиться --- */}
           <button className={styles.btnIcon}
-          onClick={handleShare}
-          aria-label="Seite teilen"
-          title="Seite teilen">
+            onClick={handleShare}
+            aria-label="Seite teilen"
+            title="Seite teilen">
 
             <IconShare size="1.3em" color="currentColor" />
           </button>

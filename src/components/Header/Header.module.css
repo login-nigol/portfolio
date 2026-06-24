@@ -90,6 +90,16 @@
   color: var(--color-gold);
 }
 
+.role span {
+  animation: blink 0.7s infinite;
+  color: var(--color-gold);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* ===================== КНОПКИ СПРАВА ===================== */
 .actions {
   display: flex;
