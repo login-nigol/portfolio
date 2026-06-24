@@ -11,6 +11,8 @@ import imgClock from '../../assets/images/projects/svg_clock.jpg'
 import imgTennis from '../../assets/images/projects/tennis_dom.jpg'
 import imgForm from '../../assets/images/projects/dynamic_form.jpg'
 
+import SvgClock from '../../components/shared/SvgClock/SvgClock'
+
 /* ===================== ДАННЫЕ ===================== */
 const projects = [
   {
@@ -48,7 +50,7 @@ const projects = [
     description: 'Analoge SVG-Uhr mit JavaScript. Zeigt die aktuelle Uhrzeit mit animierten Zeigern und digitalem Display.',
     stack: ['HTML5', 'SVG', 'JavaScript ES6+'],
     // image: imgClock,
-    iframe: 'https://login-nigol.github.io/HOMEWORK/37-CLOCK_SVG/',
+    // iframe: 'https://login-nigol.github.io/HOMEWORK/37-CLOCK_SVG/',
 
   },
   {
@@ -107,18 +109,15 @@ export default function Projects() {
           </a> */}
 
           <a href={url} target="_blank" rel="noopener noreferrer" className={styles.imgWrap}>
-            {iframe ? (
-              <iframe
-                src={iframe}
-                title={title}
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: 'var(--radius)' }}
-              />
-            ) : (
-              <>
+            {title === 'SVG Clock'
+              ? <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+                <SvgClock diameter={200} />
+              </div>
+              : <>
                 <img src={image} alt={title} />
                 <div className={styles.overlay}><span>🔗 Projekt öffnen</span></div>
               </>
-            )}
+            }
           </a>
 
           {/* --- Инфо справа --- */}
