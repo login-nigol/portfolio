@@ -32,6 +32,7 @@
   --radius: 0.8em;
   --shadow: 0 0.3em 1.2em rgba(0, 0, 0, 0.1);
   /* --shadow: 0 0.3em 1.2em rgba(255, 255, 255, 1); */
+  --shadow-inset: inset 0 0.2em 0.8em rgba(0, 0, 0, 0.05);
   --transition: 0.5s ease;
   --border: 0.05em solid var(--color-border);
 }
