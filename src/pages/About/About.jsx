@@ -10,6 +10,7 @@ import avatar from '../../assets/images/avatar.png'
 
 import Accordion from '../../components/shared/Accordion/Accordion'
 
+
 /* ===================== АНИМАЦИЯ БЛОКОВ ===================== */
 /* --- Каждый блок появляется снизу с задержкой --- */
 const blockVariants = {

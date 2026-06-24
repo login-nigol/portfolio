@@ -47,7 +47,9 @@ const projects = [
     status: '🟢 Online',
     description: 'Analoge SVG-Uhr mit JavaScript. Zeigt die aktuelle Uhrzeit mit animierten Zeigern und digitalem Display.',
     stack: ['HTML5', 'SVG', 'JavaScript ES6+'],
-    image: imgClock,
+    // image: imgClock,
+    iframe: 'https://login-nigol.github.io/HOMEWORK/37-CLOCK_SVG/',
+
   },
   {
     title: 'Tennis Canvas',
@@ -82,7 +84,7 @@ const blockVariants = {
 export default function Projects() {
   return (
     <div className={styles.projects}>
-      {projects.map(({ title, url, period, status, description, stack, image }, index) => (
+      {projects.map(({ title, url, period, status, description, stack, image, iframe }, index) => (
         <motion.article
           key={title}
           className={styles.card}
@@ -93,7 +95,7 @@ export default function Projects() {
         >
           {/* --- Картинка слева --- */}
 
-          <a href={url}
+          {/* <a href={url}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.imgWrap}
@@ -102,6 +104,21 @@ export default function Projects() {
             <div className={styles.overlay}>
               <span>🔗 Projekt öffnen</span>
             </div>
+          </a> */}
+
+          <a href={url} target="_blank" rel="noopener noreferrer" className={styles.imgWrap}>
+            {iframe ? (
+              <iframe
+                src={iframe}
+                title={title}
+                style={{ width: '100%', height: '100%', border: 'none', borderRadius: 'var(--radius)' }}
+              />
+            ) : (
+              <>
+                <img src={image} alt={title} />
+                <div className={styles.overlay}><span>🔗 Projekt öffnen</span></div>
+              </>
+            )}
           </a>
 
           {/* --- Инфо справа --- */}
