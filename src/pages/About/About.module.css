@@ -153,6 +153,7 @@
   flex-wrap: wrap;
   gap: 0.4em;
   width: 100%;
+  overflow: hidden;
 }
 
 .tag {
@@ -166,6 +167,9 @@
   border-radius: 0.4em;
   color: var(--color-accent);
   white-space: nowrap;
+
+  flex: unset;
+  min-width: unset;
 }
 
 /* ===================== ЯЗЫКИ ===================== */
