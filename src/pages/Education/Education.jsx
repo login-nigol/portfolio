@@ -64,19 +64,6 @@ const courses = [
     ]
   },
   {
-    title: 'Web Application Development with JavaScript',
-    school: 'IT-Academy',
-    period: '2025 – 2026',
-    hours: '116 Stunden',
-    cert: certJS,
-    certName: 'Zertifikat — JavaScript',
-    items: [
-      'JavaScript ES6+, DOM, Async/Await',
-      'Fetch API, Event Handling',
-      'Modulares JavaScript',
-    ]
-  },
-  {
     title: 'Website Development with HTML, CSS & JavaScript',
     school: 'IT-Academy',
     period: '2025 – 2026',
@@ -89,6 +76,19 @@ const courses = [
       'JavaScript Grundlagen',
     ]
   },
+  {
+    title: 'Web Application Development with JavaScript',
+    school: 'IT-Academy',
+    period: '2025 – 2026',
+    hours: '116 Stunden',
+    cert: certJS,
+    certName: 'Zertifikat — JavaScript',
+    items: [
+      'JavaScript ES6+, DOM, Async/Await',
+      'Fetch API, Event Handling',
+      'Modulares JavaScript',
+    ]
+  },  
 ]
 
 /* ===================== КОМПОНЕНТ ===================== */
