@@ -144,7 +144,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-accent);
+  color: var(--color-gold);
   display: flex;
   align-items: center;
   padding: var(--space-xs);
