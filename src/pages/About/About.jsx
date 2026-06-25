@@ -176,7 +176,11 @@ export default function About() {
           <span className={styles.statLabel}>Projekte</span>
         </div>
         <div className={styles.statItem}>
-          <span className={styles.statNumber}>560h</span>
+          <span className={styles.statNumber}>4</span>
+          <span className={styles.statLabel}>Jahre Studium</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>784h</span>
           <span className={styles.statLabel}>Ausbildung</span>
         </div>
       </motion.div>
