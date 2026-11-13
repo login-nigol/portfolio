@@ -1,0 +1,14 @@
+/* src/App.module.css */
+
+/* ===================== КАРКАС СТРАНИЦЫ ===================== */
+/* --- Колонка на всю высоту: подвал всегда внизу --- */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout > main {
+  flex: 1;
+  width: 100%;
+}

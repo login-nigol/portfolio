@@ -1,0 +1,136 @@
+/* src/pages/Profile/Profile.module.css */
+
+/* ===================== HERO ===================== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.photo {
+  flex-shrink: 0;
+  width: 8.5em;
+  height: 8.5em;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.2em solid var(--color-surface);
+  box-shadow: 0 0 0 0.06em var(--color-line);
+}
+
+.name {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+}
+
+.title {
+  margin-top: 0.3em;
+  font-size: 1.15em;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.location {
+  margin-top: 0.2em;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+/* ===================== ПРОФИЛЬ ===================== */
+.profile {
+  margin-top: var(--space-md);
+  max-width: 45em;
+}
+
+.seeking {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-sm);
+  font-weight: 600;
+  border-left: 0.2em solid var(--color-accent);
+}
+
+/* ===================== СТЕК ===================== */
+.skills {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 9em 1fr;
+  align-items: start;
+  gap: var(--space-sm);
+}
+
+.skillGroup {
+  padding-top: 0.15em;
+  font-weight: 600;
+}
+
+/* ===================== ГЛАВНЫЙ ПРОЕКТ ===================== */
+.featured {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 0.06em solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.featuredHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.featuredHead h3 {
+  font-size: var(--fs-h3);
+}
+
+.meta {
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.featuredSub {
+  color: var(--color-muted);
+}
+
+.bullets {
+  margin-top: var(--space-sm);
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.bullets li + li {
+  margin-top: 0.3em;
+}
+
+.more {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-weight: 600;
+}
+
+/* ===================== МОБИЛА ===================== */
+@media (max-width: 48em) {
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .photo {
+    width: 7em;
+    height: 7em;
+  }
+
+  .name {
+    font-size: 2em;
+  }
+
+  /* --- Группа стека над тегами --- */
+  .skillRow {
+    grid-template-columns: 1fr;
+    gap: 0.3em;
+  }
+}
