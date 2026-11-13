@@ -1,0 +1,58 @@
+/* src/pages/Career/Career.module.css */
+
+/* ===================== ТАЙМЛАЙН ===================== */
+.timeline {
+  list-style: none;
+}
+
+/* --- Слева период, справа содержимое --- */
+.item {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+}
+
+.item + .item {
+  border-top: 0.06em solid var(--color-line);
+}
+
+.period {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.role {
+  font-size: 1.1em;
+}
+
+.place {
+  color: var(--color-muted);
+}
+
+.bullets {
+  margin-top: 0.3em;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+/* ===================== ЯЗЫКИ ===================== */
+.languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  gap: var(--space-sm);
+}
+
+.langName {
+  font-weight: 600;
+}
+
+/* ===================== МОБИЛА ===================== */
+@media (max-width: 48em) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 0.2em;
+  }
+}

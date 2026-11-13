@@ -1,17 +1,19 @@
 # Portfolio – Vadim Antipov
 
-Persönliches Portfolio einer Full-Stack-Entwicklers.  
-Gebaut mit React 19, Vite, Framer Motion und CSS Modules.
+Persönliche Website und Lebenslauf: **vadim-antipov.vercel.app**
 
-## Seiten
+## Aufbau
 
-- **Über mich** – Kurzprofil und Skills
-- **Ausbildung** – Bildungsweg mit Accordion-UI
-- **Projekte** – Eigene Entwicklungsprojekte
-- **Kontakt** – Kontakt
+- `src/data/cv.js` – **einzige Datenquelle** (DE + EN) für Website und PDF-Lebenslauf
+- Seiten: Profil · Projekte · Werdegang · Kontakt, Sprache DE/EN umschaltbar
+- `/cv/de`, `/cv/en` – Druckversion (A4) → `public/cv/*.pdf`
 
-## Tech Stack
-React 19 · Vite · React Router · Framer Motion · CSS Modules
+## PDF neu erzeugen
 
-## Deploy
-[Vercel](https://vercel.com)
+```bash
+bash scripts/build-cv-pdf.sh
+```
+
+## Stack
+
+React 19 · Vite · React Router · Framer Motion · CSS Modules · Inter (self-hosted) · Vercel

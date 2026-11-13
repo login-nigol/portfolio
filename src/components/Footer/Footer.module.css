@@ -2,72 +2,35 @@
 
 /* ===================== ПОДВАЛ ===================== */
 .footer {
-  position: relative;
-  overflow: hidden;
+  border-top: 0.06em solid var(--color-line);
   background: var(--color-surface);
-  backdrop-filter: var(--blur);
-  /* border-top: var(--border); */
 }
 
-/* ===================== ОБЁРТКА КАНВАСА ===================== */
-.canvasWrap {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* ===================== КОНТЕНТ ПОВЕРХ КАНВАСА ===================== */
-.content {
-  position: relative;
-  z-index: 1;
-
+.inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-xs) var(--space-lg);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-sm);
 }
 
-/* ===================== КОПИРАЙТ ===================== */
 .copy {
-  font-size: var(--fs-base);
-  color: var(--color-gold);
+  font-size: var(--fs-small);
+  color: var(--color-muted);
 }
 
-/* ===================== ИКОНКИ ===================== */
 .socials {
   display: flex;
   gap: var(--space-sm);
-  align-items: center;
 }
 
-.link {
+.social {
   display: flex;
-  align-items: center;
-  opacity: 0.75;
-  transition: opacity var(--transition), transform var(--transition);
+  color: var(--color-muted);
+  transition: color var(--transition);
 }
 
-.link svg {
-  width: 2em;
-  height: 2em;
-}
-
-.link:hover {
-  opacity: 1;
-  transform: translateY(-0.2em);
-}
-
-/* ===================== МОБИЛА (до 48em) ===================== */
-@media (max-width: 48em) {
-  .content {
-    flex-direction: column;
-    gap: var(--space-xs);
-    padding: var(--space-xs);
-  }
-
-  /* ===================== ИКОНКИ ===================== */
-  .socials {
-    gap: var(--space-lg);
-  }
+.social:hover {
+  color: var(--color-accent);
 }

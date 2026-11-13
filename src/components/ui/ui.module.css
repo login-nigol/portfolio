@@ -1,0 +1,39 @@
+/* src/components/ui/ui.module.css */
+
+/* ===================== СТРАНИЦА ===================== */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm) var(--space-xl);
+}
+
+/* ===================== СЕКЦИЯ ===================== */
+.section {
+  margin-top: var(--space-lg);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border-bottom: 0.06em solid var(--color-line);
+}
+
+/* ===================== ТЕГИ ===================== */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.tag {
+  padding: 0.15em 0.6em;
+  font-size: var(--fs-small);
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 0.3em;
+}

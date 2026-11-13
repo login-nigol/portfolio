@@ -2,253 +2,251 @@
 
 /* ===================== ШАПКА ===================== */
 .header {
-  /* --- Относительное позиционирование для фона с кодом --- */
-  position: relative;
-  overflow: visible;
-
-  /* --- Оформление --- */
-  background: var(--color-surface);
-  backdrop-filter: var(--blur);
-  /* border-bottom: var(--border); */
-
-  /* --- z-index чтобы хедер был над контентом --- */
-  z-index: 100;
-}
-
-/* ===================== ФОН: ПАДАЮЩИЙ КОД ===================== */
-
-.codeBackground {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-
-  /* --- Растягиваем на всю высоту хедера --- */
-  width: 100%;
-  height: 100%;
-}
-
-.codeParticle {
-  position: absolute;
+  position: sticky;
   top: 0;
-  white-space: nowrap;
-  font-family: 'Fira Code', 'Courier New', monospace;
-
-  /* --- Больше расстояние между строками --- */
-  line-height: 2.5;
-  display: block;
+  z-index: 10;
+  background: rgba(247, 247, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.06em solid var(--color-line);
 }
 
-/* ===================== КОНТЕНТ ПОВЕРХ ФОНА ===================== */
-
-.content {
+.inner {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-sm) var(--space-lg);
+  max-width: var(--content-width);
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+/* ===================== ИМЯ ===================== */
+.brand {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+/* ===================== НАВИГАЦИЯ ===================== */
+.nav {
+  display: flex;
+  gap: var(--space-sm);
+  margin-right: auto;
+}
+
+.link {
   position: relative;
-  z-index: 1;
-
-  /* --- Ограничиваем высоту хедера --- */
-  min-height: 5em;
+  padding: 0.3em 0.1em;
+  color: var(--color-muted);
+  font-weight: 500;
 }
 
-/* ===================== АВАТАР ===================== */
-.avatar {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-  border: 0.1em solid var(--color-border);
-
-  /* --- Аватар первый слева --- */
-  order: 0;
+.link:hover {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* --- Активный пункт: подчёркивание акцентом --- */
+.active {
+  color: var(--color-text);
 }
 
-/* ===================== ИМЯ И ДОЛЖНОСТЬ ===================== */
-.info {
-  flex: 1;
-  order: 1;
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1em;
+  height: 0.12em;
+  background: var(--color-accent);
 }
 
-.name {
-  font-family: var(--font-heading);
-  font-size: var(--fs-lg);
-  color: var(--color-accent);
-  line-height: 1.2;
-}
-
-.role {
-  font-size: var(--fs-md);
-  color: var(--color-gold);
-}
-
-.role span {
-  animation: blink 0.7s infinite;
-  color: var(--color-gold);
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
-/* ===================== КНОПКИ СПРАВА ===================== */
+/* ===================== ДЕЙСТВИЯ ===================== */
 .actions {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  flex-shrink: 0;
-  order: 2;
-
-  /* --- Прижимаем вправо --- */
-  margin-left: auto;
 }
 
-/* ===================== КНОПКА ПЕЧАТИ ===================== */
-.btnPrint {
-  /* --- Сброс стилей кнопки --- */
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  /* --- Серый цвет --- */
-  color: var(--color-text-muted);
-
-  /* --- Размеры и выравнивание --- */
+/* --- Переключатель DE/EN --- */
+.langSwitch {
   display: flex;
-  align-items: center;
-  padding: var(--space-xs);
+  border: 0.06em solid var(--color-line);
   border-radius: var(--radius);
-  font-size: 1.3em;
-
-  /* --- Анимация --- */
-  transition: color var(--transition), background var(--transition);
+  overflow: hidden;
 }
 
-/* --- Ховер --- */
-.btnPrint:hover {
-  color: var(--color-text);
-  background: rgba(107, 114, 128, 0.1);
-}
-
-/* ===================== КНОПКА ПОДЕЛИТЬСЯ ===================== */
-.btnIcon {
-  background: none;
+.langBtn {
+  padding: 0.3em 0.6em;
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-muted);
+  background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--color-gold);
-  display: flex;
-  align-items: center;
-  padding: var(--space-xs);
-  border-radius: var(--radius);
-  transition: color var(--transition), background var(--transition);
-  font-size: 1.3em;
 }
 
-.btnIcon:hover {
-  color: var(--color-accent);
-  background: rgba(74, 144, 184, 0.1);
+.langActive {
+  color: #fff;
+  background: var(--color-accent);
 }
 
-/* ===================== БУРГЕР ===================== */
-.burger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  /* padding: var(--space-xs); */
-  display: none;
-  align-items: center;
-  font-size: 1.5em;
+/* --- Кнопка PDF --- */
+.cvBtn {
+  padding: 0.4em 0.9em;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-accent);
   border-radius: var(--radius);
+  white-space: nowrap;
   transition: background var(--transition);
 }
 
-.burger:hover {
-  background: rgba(74, 144, 184, 0.1);
+.cvBtn:hover {
+  background: #173b5c;
+  text-decoration: none;
 }
 
-/* ===================== ПОЛОСКИ БУРГЕРА ===================== */
-.burgerLine {
-  display: block;
-  width: 1.5em;
-  height: 0.15em;
-  background: var(--color-text);
-  border-radius: 0.1em;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform-origin: center;
+/* --- Короткая подпись PDF видна только на мобиле --- */
+.cvShort {
+  display: none;
 }
 
-.burgerOpen .burgerLine:nth-child(1) { transform: translateY(0.45em) rotate(45deg);   }
-.burgerOpen .burgerLine:nth-child(2) { opacity: 0; transform: scaleX(0);              }
-.burgerOpen .burgerLine:nth-child(3) { transform: translateY(-0.45em) rotate(-45deg); }
-
-/* ===================== ВЫПАДАШКА НАВИГАЦИИ ===================== */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  background: var(--color-bg);
-  backdrop-filter: var(--blur);
-  border-bottom: var(--border);
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-sm);
-  gap: var(--space-xs);
+/* --- Бургер скрыт на десктопе --- */
+.burger {
+  display: none;
 }
 
-/* ===================== ССЫЛКИ ВЫПАДАШКИ ===================== */
-.dropdownLink {
-  font-size: var(--fs-md);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius);
-  color: var(--color-text);
-  font-weight: 700;
-  transition: all var(--transition);
-}
-
-.dropdownLink:hover {
-  background: var(--color-accent);
-  color: white;
-  opacity: 1;
-}
-
-.active {
-  background: var(--color-accent);
-  color: white;
+.overlay {
+  display: none;
 }
 
 /* ===================== МОБИЛА (до 48em) ===================== */
 @media (max-width: 48em) {
-  .content {
-    padding: var(--space-xs) var(--space-sm);
-    gap: var(--space-sm);
+
+  .inner {
+    gap: var(--space-xs);
+    justify-content: space-between;
   }
 
-  .avatar {
-    width: 2.5em;
-    height: 2.5em;
-  }
-
-  .name { font-size: var(--fs-lg); }
-  .role { font-size: var(--fs-base); }
-
-  .btnPrint {
+  /* --- Меню выпадает под шапкой --- */
+  .nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-surface);
+    border-bottom: 0.06em solid var(--color-line);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.06);
   }
 
-  .btnIcon {
+  .navOpen {
+    display: flex;
+  }
+
+  .link {
+    padding: 0.7em 0;
     font-size: 1.1em;
   }
 
-  .burger { display: flex; }
+  .active::after {
+    display: none;
+  }
+
+  .active {
+    color: var(--color-accent);
+  }
+
+  /* --- PDF-кнопка компактнее --- */
+  .cvBtn {
+    padding: 0.35em 0.6em;
+  }
+
+  .cvFull {
+    display: none;
+  }
+
+  .cvShort {
+    display: inline;
+  }
+
+  /* --- Бургер: три полоски → крестик --- */
+  .burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4em;
+    height: 2.4em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .burgerIcon,
+  .burgerIcon::before,
+  .burgerIcon::after {
+    display: block;
+    width: 1.3em;
+    height: 0.12em;
+    background: var(--color-text);
+    transition: transform var(--transition), background var(--transition);
+  }
+
+  .burgerIcon {
+    position: relative;
+  }
+
+  .burgerIcon::before,
+  .burgerIcon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .burgerIcon::before {
+    top: -0.4em;
+  }
+
+  .burgerIcon::after {
+    top: 0.4em;
+  }
+
+  .burgerIconOpen {
+    background: transparent;
+  }
+
+  .burgerIconOpen::before {
+    transform: translateY(0.4em) rotate(45deg);
+  }
+
+  .burgerIconOpen::after {
+    transform: translateY(-0.4em) rotate(-45deg);
+  }
+
+  /* --- Невидимый оверлей на весь экран под меню --- */
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
+/* --- Очень узкие экраны: имя чуть меньше --- */
+@media (max-width: 24em) {
+  .brand {
+    font-size: 1em;
+  }
 }

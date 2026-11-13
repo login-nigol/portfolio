@@ -1,0 +1,143 @@
+/* src/pages/CvPrint/CvPrint.module.css */
+
+/* =====================================================================
+   ПЕЧАТЬ A4. Размеры в pt/mm — для бумаги это стандарт
+   (правило «не мельче 1.1em» относится к экрану телефона).
+   ===================================================================== */
+
+/* ===================== ЛИСТ ===================== */
+.sheet {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 14mm 16mm;
+  font-size: 10pt;
+  line-height: 1.45;
+  color: #1c2230;
+  background: #fff;
+}
+
+.sheet a {
+  color: inherit;
+}
+
+/* ===================== ШАПКА ===================== */
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8mm;
+  padding-bottom: 4mm;
+  border-bottom: 0.6pt solid #1f4e79;
+}
+
+.name {
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.title {
+  margin-top: 1mm;
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: #1f4e79;
+}
+
+.contacts {
+  margin-top: 2mm;
+  color: #4a5262;
+}
+
+.photo {
+  width: 30mm;
+  height: 34mm;
+  object-fit: cover;
+  border-radius: 2mm;
+}
+
+/* ===================== БЛОКИ ===================== */
+.block {
+  margin-top: 4.5mm;
+  break-inside: avoid-page;
+}
+
+.h2 {
+  margin-bottom: 1.5mm;
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f4e79;
+  border-bottom: 0.4pt solid #d6dae0;
+}
+
+.seeking {
+  margin-top: 1.5mm;
+  font-weight: 600;
+}
+
+/* ===================== СТЕК ===================== */
+.skills {
+  display: grid;
+  gap: 0.6mm;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+}
+
+.skillRow dt {
+  font-weight: 600;
+}
+
+/* ===================== ЗАПИСИ (проекты, опыт, образование) ===================== */
+.entry {
+  margin-top: 2mm;
+  break-inside: avoid;
+}
+
+.entryHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+.period {
+  flex-shrink: 0;
+  color: #4a5262;
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: #4a5262;
+}
+
+.bullets {
+  margin-top: 0.8mm;
+  padding-left: 4mm;
+  list-style: disc;
+}
+
+.bullets li + li {
+  margin-top: 0.4mm;
+}
+
+/* ===================== ПЕЧАТЬ ===================== */
+/* --- Поля задаёт @page: так они есть и на второй странице --- */
+@page {
+  size: A4;
+  margin: 12mm 15mm;
+}
+
+@media print {
+  /* --- Серый фон сайта на бумаге не нужен --- */
+  :global(html),
+  :global(body) {
+    background: #fff;
+  }
+
+  .sheet {
+    max-width: none;
+    padding: 0;
+  }
+}
